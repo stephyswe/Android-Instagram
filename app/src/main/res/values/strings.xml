@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InstragramClone</string>
+    <string name="stephanie_hallberg">stephanie.hallberg</string>
+    <string name="profile_menu">profile_menu</string>
 </resources>
