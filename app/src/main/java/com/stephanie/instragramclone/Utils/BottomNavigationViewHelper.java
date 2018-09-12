@@ -8,12 +8,12 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instragramclone.HomeActivity;
-import com.stephanie.instragramclone.LikesActivity;
-import com.stephanie.instragramclone.ProfileActivity;
+import com.stephanie.instragramclone.Home.HomeActivity;
+import com.stephanie.instragramclone.Likes.LikesActivity;
+import com.stephanie.instragramclone.Profile.ProfileActivity;
 import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.SearchActivity;
-import com.stephanie.instragramclone.ShareActivity;
+import com.stephanie.instragramclone.Search.SearchActivity;
+import com.stephanie.instragramclone.Share.ShareActivity;
 
 public class BottomNavigationViewHelper {
 

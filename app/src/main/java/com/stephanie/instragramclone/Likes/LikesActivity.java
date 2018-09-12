@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone;
+package com.stephanie.instragramclone.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
 
 public class LikesActivity extends AppCompatActivity {

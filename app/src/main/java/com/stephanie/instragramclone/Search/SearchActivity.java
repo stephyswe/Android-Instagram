@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone;
+package com.stephanie.instragramclone.Search;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,13 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
 
-public class ShareActivity extends AppCompatActivity {
-    private static final String TAG = "ShareActivity";
-    public static final int ACTIVITY_NUM = 2;
+public class SearchActivity extends AppCompatActivity {
+    private static final String TAG = "SearchActivity";
+    public static final int ACTIVITY_NUM = 1;
 
-    private Context mContext = ShareActivity.this;
+    private Context mContext = SearchActivity.this;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

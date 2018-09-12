@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone;
+package com.stephanie.instragramclone.Share;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,13 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
 
-public class ProfileActivity extends AppCompatActivity {
-    private static final String TAG = "ProfileActivity";
-    public static final int ACTIVITY_NUM = 4;
+public class ShareActivity extends AppCompatActivity {
+    private static final String TAG = "ShareActivity";
+    public static final int ACTIVITY_NUM = 2;
 
-    private Context mContext = ProfileActivity.this;
+    private Context mContext = ShareActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
