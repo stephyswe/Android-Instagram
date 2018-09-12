@@ -2,4 +2,8 @@
     <string name="app_name">InstragramClone</string>
     <string name="stephanie_hallberg">stephanie.hallberg</string>
     <string name="profile_menu">profile_menu</string>
+
+    <!-- Account Settings Menu -->
+    <string name="edit_profile">Edit Profile</string>
+    <string name="sign_out">Sign out</string>
 </resources>
