@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     defaultConfig {
         applicationId "com.stephanie.instragramclone"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -28,4 +28,5 @@ dependencies {
 
     //Design lib
     implementation 'com.android.support:design:25.3.1'
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.1.9'
 }
