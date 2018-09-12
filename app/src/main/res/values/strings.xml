@@ -4,6 +4,6 @@
     <string name="profile_menu">profile_menu</string>
 
     <!-- Account Settings Menu -->
-    <string name="edit_profile">Edit Profile</string>
-    <string name="sign_out">Sign out</string>
+    <string name="edit_profile_fragment">Edit Profile</string>
+    <string name="sign_out_fragment">Sign out</string>
 </resources>

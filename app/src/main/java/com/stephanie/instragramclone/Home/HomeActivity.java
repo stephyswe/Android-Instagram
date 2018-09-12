@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instragramclone.Utils.SectionsPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
 
