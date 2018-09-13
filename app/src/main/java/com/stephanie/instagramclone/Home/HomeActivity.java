@@ -1,6 +1,7 @@
 package com.stephanie.instagramclone.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,8 +10,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.stephanie.instagramclone.Login.LoginActivity;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
@@ -22,6 +26,10 @@ public class HomeActivity extends AppCompatActivity {
     public static final int ACTIVITY_NUM = 0;
     private Context mContext = HomeActivity.this;
 
+    //Firebase Auth
+    private FirebaseAuth mAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +40,25 @@ public class HomeActivity extends AppCompatActivity {
         setupBottomNavigationView();
         setupViewPager();
 
+        mAuth = FirebaseAuth.getInstance();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            //authenticated user
+        } else {
+            //returns to login
+            startActivity(new Intent(this, LoginActivity.class));
+        }
     }
 
     private void initImageLoader() {
@@ -75,4 +101,14 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+
+    /*
+    --------------------Firebase -----------------------------------
+     */
+
+
+
+
+
+
 }
