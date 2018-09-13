@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Home;
+package com.stephanie.instagramclone.Home;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instragramclone.Utils.SectionsPagerAdapter;
-import com.stephanie.instragramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
 

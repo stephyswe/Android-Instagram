@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone;
+package com.stephanie.instagramclone;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

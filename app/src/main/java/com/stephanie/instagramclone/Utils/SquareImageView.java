@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Utils;
+package com.stephanie.instagramclone.Utils;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

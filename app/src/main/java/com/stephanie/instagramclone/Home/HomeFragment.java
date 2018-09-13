@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Home;
+package com.stephanie.instagramclone.Home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.stephanie.instragramclone.R;
+import com.stephanie.instagramclone.R;
 
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";

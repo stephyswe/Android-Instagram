@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Share;
+package com.stephanie.instagramclone.Share;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 
 public class ShareActivity extends AppCompatActivity {
     private static final String TAG = "ShareActivity";

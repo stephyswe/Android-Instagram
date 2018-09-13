@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone;
+package com.stephanie.instagramclone;
 
 import org.junit.Test;
 

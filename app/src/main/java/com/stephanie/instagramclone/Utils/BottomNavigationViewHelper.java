@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Utils;
+package com.stephanie.instagramclone.Utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,12 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-import com.stephanie.instragramclone.Home.HomeActivity;
-import com.stephanie.instragramclone.Likes.LikesActivity;
-import com.stephanie.instragramclone.Profile.ProfileActivity;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Search.SearchActivity;
-import com.stephanie.instragramclone.Share.ShareActivity;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.Likes.LikesActivity;
+import com.stephanie.instagramclone.Profile.ProfileActivity;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Search.SearchActivity;
+import com.stephanie.instagramclone.Share.ShareActivity;
 
 public class BottomNavigationViewHelper {
 

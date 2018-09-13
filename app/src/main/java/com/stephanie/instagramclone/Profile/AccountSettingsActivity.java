@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Profile;
+package com.stephanie.instagramclone.Profile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,9 +16,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instragramclone.Utils.SectionsStatePagerAdapter;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Search;
+package com.stephanie.instagramclone.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,23 +9,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 
-public class SearchActivity extends AppCompatActivity {
-    private static final String TAG = "SearchActivity";
-    public static final int ACTIVITY_NUM = 1;
+public class LikesActivity extends AppCompatActivity {
+    private static final String TAG = "LikesActivity";
+    public static final int ACTIVITY_NUM = 3;
 
-    private Context mContext = SearchActivity.this;
-
+    private Context mContext = LikesActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_register);
         Log.d(TAG, "onCreate: started");
 
-        setupBottomNavigationView();
+        //setupBottomNavigationView();
     }
 
     //* Bottom Nav View setup *

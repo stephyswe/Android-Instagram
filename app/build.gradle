@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     defaultConfig {
-        applicationId "com.stephanie.instragramclone"
+        applicationId "com.stephanie.instagramclone"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1

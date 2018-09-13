@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Utils;
+package com.stephanie.instagramclone.Utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.stephanie.instragramclone.R;
+import com.stephanie.instagramclone.R;
 
 import java.util.ArrayList;
 

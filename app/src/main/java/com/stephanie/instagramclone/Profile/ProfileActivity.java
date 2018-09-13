@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Profile;
+package com.stephanie.instagramclone.Profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,10 +15,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instragramclone.Utils.GridImageAdapter;
-import com.stephanie.instragramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.GridImageAdapter;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
 import java.util.ArrayList;
 

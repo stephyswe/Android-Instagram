@@ -1,4 +1,4 @@
-package com.stephanie.instragramclone.Profile;
+package com.stephanie.instagramclone.Profile;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.stephanie.instragramclone.R;
-import com.stephanie.instragramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
 public class EditProfileFragment extends Fragment {
 
