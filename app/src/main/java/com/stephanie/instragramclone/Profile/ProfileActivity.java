@@ -10,12 +10,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instragramclone.Utils.GridImageAdapter;
+import com.stephanie.instragramclone.Utils.UniversalImageLoader;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
@@ -24,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Context mContext = ProfileActivity.this;
 
     private ProgressBar mProgressBar;
+    private ImageView profilePhoto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,11 +37,52 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: started");
 
-        mProgressBar = (ProgressBar) findViewById(R.id.profileProgressBar);
-        mProgressBar.setVisibility(View.GONE);
+
 
         setupBottomNavigationView();
         setupToolbar();
+        setupActivityWidgets();
+        setProfileImage();
+
+        tempGridSetup();
+    }
+
+    private void tempGridSetup() {
+        ArrayList<String> imgURLs = new ArrayList<>();
+        imgURLs.add("https://pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg");
+        imgURLs.add("https://i.redd.it/9bf67ygj710z.jpg");
+        imgURLs.add("https://c1.staticflickr.com/5/4276/34102458063_7be616b993_o.jpg");
+        imgURLs.add("http://i.imgur.com/EwZRpvQ.jpg");
+        imgURLs.add("http://i.imgur.com/JTb2pXP.jpg");
+        imgURLs.add("https://i.redd.it/59kjlxxf720z.jpg");
+        imgURLs.add("https://i.redd.it/pwduhknig00z.jpg");
+        imgURLs.add("https://i.redd.it/clusqsm4oxzy.jpg");
+        imgURLs.add("https://i.redd.it/svqvn7xs420z.jpg");
+        imgURLs.add("http://i.imgur.com/j4AfH6P.jpg");
+        imgURLs.add("https://i.redd.it/89cjkojkl10z.jpg");
+        imgURLs.add("https://i.redd.it/aw7pv8jq4zzy.jpg");
+
+        setupImageGrid(imgURLs);
+    }
+
+    private void setupImageGrid(ArrayList<String> imgURLs) {
+        GridView gridView = (GridView) findViewById(R.id.gridView);
+
+        GridImageAdapter adapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
+        gridView.setAdapter(adapter);
+    }
+
+    private void setProfileImage(){
+        Log.d(TAG, "setProfileImage: setting profile photo. ");
+        String imgURL = "cdn.wccftech.com/wp-content/uploads/2017/08/download-android-8.jpg";
+        UniversalImageLoader.setImage(imgURL, profilePhoto, mProgressBar, "http://");
+
+    }
+
+    private void setupActivityWidgets() {
+        mProgressBar = (ProgressBar) findViewById(R.id.profileProgressBar);
+        mProgressBar.setVisibility(View.GONE);
+        profilePhoto = (ImageView) findViewById(R.id.profile_photo);
     }
 
     /**

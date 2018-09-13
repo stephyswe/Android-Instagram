@@ -10,13 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.stephanie.instragramclone.R;
 import com.stephanie.instragramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instragramclone.Utils.SectionsPagerAdapter;
+import com.stephanie.instragramclone.Utils.UniversalImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
-
-    // Stopped at 10:22 in video. part 6.
 
     private static final String TAG = "HomeActivity";
     public static final int ACTIVITY_NUM = 0;
@@ -28,8 +28,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting. ");
 
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+
+
+    }
+
+    private void initImageLoader() {
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     /**
