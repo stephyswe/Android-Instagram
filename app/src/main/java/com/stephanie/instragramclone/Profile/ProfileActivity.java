@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     public static final int ACTIVITY_NUM = 4;
+    private static final int NUM_GRID_COLUMNS = 4;
 
     private Context mContext = ProfileActivity.this;
 
@@ -49,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void tempGridSetup() {
         ArrayList<String> imgURLs = new ArrayList<>();
-        imgURLs.add("https://pbs.twimg.com/profile_images/616076655547682816/6gMRtQyY.jpg");
         imgURLs.add("https://i.redd.it/9bf67ygj710z.jpg");
         imgURLs.add("https://c1.staticflickr.com/5/4276/34102458063_7be616b993_o.jpg");
         imgURLs.add("http://i.imgur.com/EwZRpvQ.jpg");
@@ -70,6 +70,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         GridImageAdapter adapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
         gridView.setAdapter(adapter);
+
+        int gridWidth = getResources().getDisplayMetrics().widthPixels;
+        int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+        gridView.setColumnWidth(imageWidth);
     }
 
     private void setProfileImage(){
