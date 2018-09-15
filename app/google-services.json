@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "925443974712-b6kb3knmshoiavftrobncc26d2lmpblc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stephanie.instagramclone",
+            "certificate_hash": "988be4281fd9a7e65c530a29d8d1bc4ff6421024"
+          }
+        },
+        {
           "client_id": "925443974712-aru5n5sjkkp3trovd42mf8928972hlb7.apps.googleusercontent.com",
           "client_type": 3
         }
