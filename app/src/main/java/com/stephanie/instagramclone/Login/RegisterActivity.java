@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String append = "";
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                 username = mUsername.getText().toString();
                 password = mPassword.getText().toString();
 
-                if(checkInputs(email, username, password)){
+                if (checkInputs(email, username, password)) {
                     mProgressBar.setVisibility(View.VISIBLE);
                     loadingPleaseWait.setVisibility(View.VISIBLE);
 
@@ -86,18 +87,19 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean checkInputs(String email, String username, String password){
+    private boolean checkInputs(String email, String username, String password) {
         Log.d(TAG, "checkInputs: checking inputs for null values.");
-        if(email.equals("") || username.equals("") || password.equals("")){
+        if (email.equals("") || username.equals("") || password.equals("")) {
             Toast.makeText(mContext, "All fields must be filled out.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
+
     /**
      * Initialize the activity widgets
      */
-    private void initWidgets(){
+    private void initWidgets() {
         Log.d(TAG, "initWidgets: Initializing Widgets.");
         mEmail = (EditText) findViewById(R.id.input_email);
         mUsername = (EditText) findViewById(R.id.input_username);
@@ -111,13 +113,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private boolean isStringNull(String string){
+    private boolean isStringNull(String string) {
         Log.d(TAG, "isStringNull: checking string if null.");
 
-        if(string.equals("")){
+        if (string.equals("")) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -129,12 +130,10 @@ public class RegisterActivity extends AppCompatActivity {
     /**
      * Setup the firebase auth object
      */
-    private void setupFirebaseAuth(){
+    private void setupFirebaseAuth() {
         Log.d(TAG, "setupFirebaseAuth: setting up firebase auth.");
 
         mAuth = FirebaseAuth.getInstance();
-
-        // Part 25: Setup Database
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
 
@@ -150,18 +149,17 @@ public class RegisterActivity extends AppCompatActivity {
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            // 1st check; Make sure the username is not already in use
-                            if (firebaseMethods.checkIfUsernameExists(username, dataSnapshot)){
-
-                                // Use 7 characters of username Key.
-                                append = myRef.push().getKey().substring(3,10);
-                                Log.d(TAG, "onDataChange: username already exists. Appending random string to name " + append);
+                            //1st check: Make sure the username is not already in use
+                            if (firebaseMethods.checkIfUsernameExists(username, dataSnapshot)) {
+                                append = myRef.push().getKey().substring(3, 10);
+                                Log.d(TAG, "onDataChange: username already exists. Appending random string to name: " + append);
                             }
-                            
-                            // add new user to the database
+                            username = username + append;
 
-                            // add new user_account_settings to the database
+                            //add new user to the database
+                            firebaseMethods.addNewUser(email, username, "", "", "");
 
+                            Toast.makeText(mContext, "Signup successful. Sending verification email.", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -170,8 +168,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     });
-
-
 
                 } else {
                     // User is signed out

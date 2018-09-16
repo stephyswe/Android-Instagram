@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stephanie.instagramclone">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,19 +13,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Home.HomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity android:name=".Likes.LikesActivity"></activity>
         <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Search.SearchActivity"></activity>
         <activity android:name=".Share.ShareActivity"></activity>
-        <activity android:name=".Profile.AccountSettingsActivity" />
-        <activity android:name=".Login.RegisterActivity" />
-        <activity android:name=".Login.LoginActivity" />
-
+        <activity android:name=".Profile.AccountSettingsActivity"></activity>
+        <activity android:name=".Login.RegisterActivity"></activity>
+        <activity android:name=".Login.LoginActivity"></activity>
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return mFragmentList.size();
     }
 
-    public void AddFragment(Fragment fragment) {
+    public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
     }
 }
