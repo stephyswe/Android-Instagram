@@ -11,6 +11,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textSize="20dp"
+        android:id="@+id/text_home_fragment"
         />
+
+    <Button
+        android:id="@+id/btn_signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:text="Log Out" />
 
 </RelativeLayout>
