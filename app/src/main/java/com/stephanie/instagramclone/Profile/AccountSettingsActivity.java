@@ -3,6 +3,7 @@ package com.stephanie.instagramclone.Profile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +17,21 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
+import com.stephanie.instagramclone.Models.UserSettings;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.SectionsStatePagerAdapter;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
 import java.util.ArrayList;
 
@@ -27,6 +39,8 @@ public class AccountSettingsActivity extends AppCompatActivity{
 
     private static final String TAG = "AccountSettingsActivity";
     public static final int ACTIVITY_NUM = 4;
+
+
 
     private Context mContext;
 
@@ -67,7 +81,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
 
         if (intent.hasExtra(getString(R.string.calling_activity))) {
             Log.d(TAG, "getIncomingIntent: received incoming intent from " + getString(R.string.profile_activity));
-            setupViewPager(pagerAdapter.getFragmentNumber(getString(R.string.edit_profile_fragment)));
+            setViewPager(pagerAdapter.getFragmentNumber(getString(R.string.edit_profile_fragment)));
     
         }
     }
@@ -83,48 +97,45 @@ public class AccountSettingsActivity extends AppCompatActivity{
      * responsible for navigation of fragments
      * @param fragmentNumber
      */
-    private void setupViewPager(int fragmentNumber){
+    private void setViewPager(int fragmentNumber){
         mRelativeLayout.setVisibility(View.GONE);
-        Log.d(TAG, "setupViewPager: navigating to fragment #: " + fragmentNumber);
+        Log.d(TAG, "setViewPager: navigating to fragment #: " + fragmentNumber);
         mViewPager.setAdapter(pagerAdapter);
         mViewPager.setCurrentItem(fragmentNumber);
     }
 
-    private void setupSettingsList() {
-        Log.d(TAG, "setupSettingsList: init 'Account Settings' List");
+    private void setupSettingsList(){
+        Log.d(TAG, "setupSettingsList: initializing 'Account Settings' list.");
         ListView listView = (ListView) findViewById(R.id.lvAccountSettings);
 
         ArrayList<String> options = new ArrayList<>();
-        options.add(getString(R.string.edit_profile_fragment));
-        options.add(getString(R.string.sign_out_fragment));
+        options.add(getString(R.string.edit_profile_fragment)); //fragment 0
+        options.add(getString(R.string.sign_out_fragment)); //fragement 1
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, options);
+        ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick: navigating to fragment#: " + position);
-                setupViewPager(position);
-                
+                setViewPager(position);
             }
         });
 
     }
 
-    //* Bottom Nav View setup *
-    private void setupBottomNavigationView() {
-        Log.d(TAG, "setupBottomNavigationView: setup up BottomNavView");
+
+    /**
+     * BottomNavigationView setup
+     */
+    private void setupBottomNavigationView(){
+        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
-
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
-
-
     }
-
-
 }
