@@ -7,7 +7,7 @@
         
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:id="@+id/profileToolbar">
 
             <RelativeLayout
@@ -22,7 +22,7 @@
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:layout_marginStart="15dp"
-                    android:id="@+id/profileName" />
+                    android:id="@+id/username" />
 
                 <ImageView
                     android:layout_width="30dp"

@@ -28,25 +28,23 @@ public class EditProfileFragment extends Fragment {
 
         setProfileImage();
 
-        // Use back arrow to visit Profile Activity.
+        //back arrow for navigating back to "ProfileActivity"
         ImageView backArrow = (ImageView) view.findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: navigation back to ProfileActivity");
+                Log.d(TAG, "onClick: navigating back to ProfileActivity");
                 getActivity().finish();
             }
         });
-
 
         return view;
     }
 
 
-
-    private void setProfileImage() {
-        Log.d(TAG, "setProfileImage: setting profile image");
-        String imgURL = "cdn.wccftech.com/wp-content/uploads/2017/08/download-android-8.jpg";
+    private void setProfileImage(){
+        Log.d(TAG, "setProfileImage: setting profile image.");
+        String imgURL = "www.androidcentral.com/sites/androidcentral.com/files/styles/xlarge/public/article_images/2016/08/ac-lloyd.jpg?itok=bb72IeLf";
         UniversalImageLoader.setImage(imgURL, mProfilePhoto, null, "https://");
     }
 }

@@ -16,12 +16,18 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instagramclone.Profile.ProfileFragment;
+
+import java.util.ArrayList;
+
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.GridImageAdapter;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
-import java.util.ArrayList;
+/**
+ * Created by User on 5/28/2017.
+ */
 
 public class ProfileActivity extends AppCompatActivity{
     private static final String TAG = "ProfileActivity";

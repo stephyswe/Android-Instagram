@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
+    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.stephanie.instagramclone"
         minSdkVersion 18
@@ -19,27 +20,33 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
 
-    implementation 'com.google.firebase:firebase-auth:16.0.1'
-    implementation 'com.google.firebase:firebase-database:11.8.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //Design library for Coordinator Layout and Toolbars
+    compile 'com.android.support:design:25.3.1'
 
-    //Design lib
-    implementation 'com.android.support:design:25.3.1'
-    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.1.9'
+    //BottomNavigationViewEx library
+    compile 'com.github.ittianyu:BottomNavigationViewEx:1.1.9'
 
     //Circle ImageView
-    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 
-    // Universal Image Loader
-    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //Universal image loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
-    //Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.1'
+    //firebase authentication
+    compile 'com.google.firebase:firebase-auth:10.2.6'
+
+    //firebase database
+    compile 'com.google.firebase:firebase-database:10.2.6'
+
 }
+
+//Firebase
 apply plugin: 'com.google.gms.google-services'
