@@ -33,7 +33,13 @@ import com.stephanie.instagramclone.dialogs.ConfirmPasswordDialog;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class EditProfileFragment extends Fragment {
+public class EditProfileFragment extends Fragment implements
+        ConfirmPasswordDialog.OnConfirmPasswordListener{
+
+    @Override
+    public void onConfirmPassword(String password) {
+
+    }
 
     private static final String TAG = "EditProfileFragment";
 
@@ -118,6 +124,7 @@ public class EditProfileFragment extends Fragment {
             //      - Confirm password and email
             ConfirmPasswordDialog dialog = new ConfirmPasswordDialog();
             dialog.show(getFragmentManager(), getString(R.string.confirm_password_dialog));
+            dialog.setTargetFragment(EditProfileFragment.this, 1);
             //step2 Check if email already exists
             //      - 'fetchProvidersForEmail(String email)
             //step3 change email
@@ -237,4 +244,6 @@ public class EditProfileFragment extends Fragment {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+
 }
