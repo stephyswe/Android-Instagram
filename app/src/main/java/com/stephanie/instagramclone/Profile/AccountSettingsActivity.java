@@ -40,8 +40,6 @@ public class AccountSettingsActivity extends AppCompatActivity{
     private static final String TAG = "AccountSettingsActivity";
     public static final int ACTIVITY_NUM = 4;
 
-
-
     private Context mContext;
 
     private SectionsStatePagerAdapter pagerAdapter;
@@ -110,7 +108,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
 
         ArrayList<String> options = new ArrayList<>();
         options.add(getString(R.string.edit_profile_fragment)); //fragment 0
-        options.add(getString(R.string.sign_out_fragment)); //fragement 1
+        options.add(getString(R.string.sign_out_fragment)); //fragment 1
 
         ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
         listView.setAdapter(adapter);
@@ -138,4 +136,5 @@ public class AccountSettingsActivity extends AppCompatActivity{
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
+
 }
