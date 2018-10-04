@@ -14,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.ProviderQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +43,65 @@ public class EditProfileFragment extends Fragment implements
 
     @Override
     public void onConfirmPassword(String password) {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Get auth credentials from the user for re-authentication. The example below shows
+        // email and password credentials but there are multiple possible providers,
+        // such as GoogleAuthProvider or FacebookAuthProvider.
+        AuthCredential credential = EmailAuthProvider
+                .getCredential(mAuth.getCurrentUser().getEmail(), password);
+
+        // Prompt the user to re-provide their sign-in credentials
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User re-authenticated.");
+
+                            // Check if email is a new field in database
+                            mAuth.fetchProvidersForEmail(mEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                                    if (task.isSuccessful()) {
+                                        try {
+                                            if (task.getResult().getProviders().size() == 1) {
+                                                Log.d(TAG, "onComplete: that email is already in use");
+                                                Toast.makeText(getActivity(), "That email is already in use", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Log.d(TAG, "onComplete: That email is available");
+
+                                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                                final String email = mEmail.getText().toString();
+
+                                                // email is available for update actions
+                                                user.updateEmail(email)
+                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    Log.d(TAG, "User email address updated.");
+                                                                    mFirebaseMethods.updateEmail(email);
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        } catch (NullPointerException e) {
+                                            Log.e(TAG, "onComplete: NullPointerException " + e.getMessage());
+                                        }
+                                    }
+                                }
+                            });
+
+
+
+                        } else {
+                            Log.d(TAG, "onComplete: re-authentication failed.");
+                        }
+
+                    }
+                });
 
     }
 
