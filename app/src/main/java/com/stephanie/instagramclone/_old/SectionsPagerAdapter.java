@@ -1,4 +1,4 @@
-package com.stephanie.instagramclone.Home;
+package com.stephanie.instagramclone._old;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
