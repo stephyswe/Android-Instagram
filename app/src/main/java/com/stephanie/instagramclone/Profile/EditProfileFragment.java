@@ -195,6 +195,27 @@ public class EditProfileFragment extends Fragment implements
             //      - submit new email to database and authentication
 
         }
+
+
+        /**
+         * Change fields in Settings that doesn't require unique values
+         */
+        if (!mUserSettings.getSettings().getDisplay_name().equals(displayName)) {
+            mFirebaseMethods.updateUserAccountSettings(displayName, null, null ,0);
+        }
+        if (!mUserSettings.getSettings().getWebsite().equals(website)) {
+            mFirebaseMethods.updateUserAccountSettings(null, website, null ,0);
+        }
+
+        if (!mUserSettings.getSettings().getDescription().equals(description)) {
+            mFirebaseMethods.updateUserAccountSettings(null, website, description ,0);
+
+        }
+
+        if (!mUserSettings.getSettings().getProfile_photo().equals(phoneNumber)) {
+            mFirebaseMethods.updateUserAccountSettings(null, website, null ,phoneNumber);
+
+        }
     }
 
     /**
