@@ -190,6 +190,8 @@ public class EditProfileFragment extends Fragment implements
             dialog.show(getFragmentManager(), getString(R.string.confirm_password_dialog));
             dialog.setTargetFragment(EditProfileFragment.this, 1);
             //step2 Check if email already exists
+
+
             //      - 'fetchProvidersForEmail(String email)
             //step3 change email
             //      - submit new email to database and authentication
@@ -209,12 +211,10 @@ public class EditProfileFragment extends Fragment implements
 
         if (!mUserSettings.getSettings().getDescription().equals(description)) {
             mFirebaseMethods.updateUserAccountSettings(null, website, description ,0);
-
         }
 
         if (!mUserSettings.getSettings().getProfile_photo().equals(phoneNumber)) {
             mFirebaseMethods.updateUserAccountSettings(null, website, null ,phoneNumber);
-
         }
     }
 
