@@ -29,6 +29,7 @@ import com.stephanie.instagramclone.Models.UserSettings;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.dialogs.ConfirmPasswordDialog;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -106,26 +107,23 @@ public class EditProfileFragment extends Fragment {
         final String email = mEmail.getText().toString();
         final long phoneNumber = Long.parseLong(mPhoneNumber.getText().toString());
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // case1: user didn't change username
-                if (!mUserSettings.getUser().getUsername().equals(username)) {
-                    checkIfUsernameExists(username);
-                }
-                // case2: user changed username (check for unique values)
-                else {
 
-                }
-            }
+        // case1: if user changed to same name.
+        if (!mUserSettings.getUser().getUsername().equals(username)) {
+            checkIfUsernameExists(username);
+        }
+        // case2: if user change their email
+        if (!mUserSettings.getUser().getEmail().equals(email)) {
+            //step1 Re-Auth
+            //      - Confirm password and email
+            ConfirmPasswordDialog dialog = new ConfirmPasswordDialog();
+            dialog.show(getFragmentManager(), getString(R.string.confirm_password_dialog));
+            //step2 Check if email already exists
+            //      - 'fetchProvidersForEmail(String email)
+            //step3 change email
+            //      - submit new email to database and authentication
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
+        }
     }
 
     /**

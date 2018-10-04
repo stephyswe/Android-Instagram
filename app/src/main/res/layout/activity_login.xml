@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:inputType="textEmailAddress"
             android:hint="Password"
+            android:inputType="textPassword"
             android:id="@+id/input_password" />
 
         <android.support.v7.widget.AppCompatButton
