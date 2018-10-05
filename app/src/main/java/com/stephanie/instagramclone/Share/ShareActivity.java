@@ -38,12 +38,23 @@ public class ShareActivity extends AppCompatActivity {
 
         if (checkPermissionsArray(Permissions.PERMISSIONS)) {
             setupViewPager();
-
         } else {
             verifyPermissions(Permissions.PERMISSIONS);
         }
     }
 
+    /**
+     * return the current tab number
+     * @return
+     */
+    public int getCurrentTabNumber() {
+        return mViewPager.getCurrentItem();
+    }
+
+
+    /**
+     * setup viewpager for managing the tabs
+     */
     private void setupViewPager(){
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new GalleryFragment());
