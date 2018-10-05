@@ -36,5 +36,6 @@
     <string name="photo">PHOTO</string>
     <string name="open_camera">Open Camera</string>
     <string name="next">Next</string>
+    <string name="string_share">Share</string>
 
 </resources>
