@@ -42,8 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/imageShare"
-                    android:id="@+id/description"
-                    android:hint="write an description..."
+                    android:id="@+id/caption"
+                    android:hint="write an caption..."
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
                     android:background="@null"/>
