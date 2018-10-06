@@ -279,12 +279,11 @@ public class EditProfileFragment extends Fragment implements
 
         mChangeProfilePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Log.d(TAG, "onClick: changing profile photo");
                 Intent intent = new Intent(getActivity(), ShareActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //22688484812
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //268435456
                 getActivity().startActivity(intent);
-
             }
         });
     }
