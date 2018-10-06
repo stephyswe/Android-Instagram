@@ -3,12 +3,15 @@ package com.stephanie.instagramclone.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.stephanie.instagramclone.Login.RegisterActivity;
@@ -37,10 +41,11 @@ public class FirebaseMethods {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
     private StorageReference mStorageReference;
-
     private String userID;
 
+    //vars
     private Context mContext;
+    private double mPhotoUploadProgress = 0;
 
     public FirebaseMethods(Context context) {
         mAuth = FirebaseAuth.getInstance();
@@ -72,8 +77,37 @@ public class FirebaseMethods {
 
             UploadTask uploadTask = null;
             uploadTask = storageReference.putBytes(bytes);
+            uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri firebaseUrl = taskSnapshot.getDownloadUrl();
 
+                    Toast.makeText(mContext, "photo upload success", Toast.LENGTH_SHORT).show();
+                    //add new photo to 'photo' node and 'user_photos' node
 
+                    //navigate to main feed so the user can see their photo
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "onFailure: Photo upload failed.");
+                    Toast.makeText(mContext, "Photo upload failed. ", Toast.LENGTH_SHORT).show();
+
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+
+                    if (progress - 15 > mPhotoUploadProgress) {
+                        Toast.makeText(mContext, "photo upload progress: " + String.format("%.0f", progress) +"%", Toast.LENGTH_SHORT).show();
+                        mPhotoUploadProgress = progress;
+                    }
+                    Log.d(TAG, "onProgress: upload progress: " + progress + "% done");
+
+                }
+            });
 
         }
         //case new profile photo
