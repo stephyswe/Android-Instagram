@@ -1,5 +1,6 @@
 package com.stephanie.instagramclone.Profile;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,6 +33,7 @@ import com.stephanie.instagramclone.Models.User;
 import com.stephanie.instagramclone.Models.UserAccountSettings;
 import com.stephanie.instagramclone.Models.UserSettings;
 import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Share.ShareActivity;
 import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 import com.stephanie.instagramclone.dialogs.ConfirmPasswordDialog;
@@ -274,6 +276,17 @@ public class EditProfileFragment extends Fragment implements
         mDescription.setText(settings.getDescription());
         mEmail.setText(userSettings.getUser().getEmail());
         mPhoneNumber.setText(String.valueOf(userSettings.getUser().getPhone_number()));
+
+        mChangeProfilePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: changing profile photo");
+                Intent intent = new Intent(getActivity(), ShareActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //22688484812
+                getActivity().startActivity(intent);
+
+            }
+        });
     }
 
     /*
