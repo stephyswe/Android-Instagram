@@ -27,6 +27,7 @@ import com.stephanie.instagramclone.Models.Photo;
 import com.stephanie.instagramclone.Models.User;
 import com.stephanie.instagramclone.Models.UserAccountSettings;
 import com.stephanie.instagramclone.Models.UserSettings;
+import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.FilePaths;
 import com.stephanie.instagramclone.Utils.ImageManager;
@@ -144,6 +145,10 @@ public class FirebaseMethods {
                     //insert into 'user_account_settings' node
                     setProfilePhoto(firebaseUrl.toString());
 
+                    ((AccountSettingsActivity)mContext).setViewPager
+                            (((AccountSettingsActivity)mContext).pagerAdapter
+                                    .getFragmentNumber(mContext.getString(R.string.edit_profile_fragment))
+                            );
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -166,7 +171,6 @@ public class FirebaseMethods {
                 }
             });
         }
-
     }
 
     private void setProfilePhoto(String url){

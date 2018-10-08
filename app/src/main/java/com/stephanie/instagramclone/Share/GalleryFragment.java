@@ -85,8 +85,8 @@ public class GalleryFragment extends Fragment {
                     intent.putExtra(getString(R.string.selected_image), mSelectedImage);
                     intent.putExtra(getString(R.string.return_to_fragment), getString(R.string.edit_profile_fragment));
                     startActivity(intent);
+                    getActivity().finish();
                 }
-
             }
         });
 
@@ -98,8 +98,7 @@ public class GalleryFragment extends Fragment {
     private boolean isRootTask(){
         if(((ShareActivity)getActivity()).getTask() == 0){
             return true;
-        }
-        else{
+        } else{
             return false;
         }
     }
