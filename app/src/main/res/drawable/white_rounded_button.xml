@@ -12,11 +12,8 @@
             <corners
                 android:radius="50dp"/>
         </shape>
-
     </item>
-
-    <item
-        android:state_pressed="false">
+    <item>
         <shape>
             <solid
                 android:color="@color/white"/>
@@ -26,7 +23,7 @@
             <corners
                 android:radius="50dp"/>
         </shape>
-
     </item>
+
 
 </selector>
