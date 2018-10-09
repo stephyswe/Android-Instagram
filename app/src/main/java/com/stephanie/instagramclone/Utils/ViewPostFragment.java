@@ -43,12 +43,13 @@ public class ViewPostFragment extends Fragment {
 
     private static final String TAG = "ViewPostFragment";
 
-    public interface OnCommentThreadSelectedListener {
+
+    public interface OnCommentThreadSelectedListener{
         void onCommentThreadSelectedListener(Photo photo);
     }
     OnCommentThreadSelectedListener mOnCommentThreadSelectedListener;
 
-    public ViewPostFragment() {
+    public ViewPostFragment(){
         super();
         setArguments(new Bundle());
     }
@@ -86,7 +87,7 @@ public class ViewPostFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_view_post, container, false);
         mPostImage = (SquareImageView) view.findViewById(R.id.post_image);
         bottomNavigationView = (BottomNavigationViewEx) view.findViewById(R.id.bottomNavViewBar);
-        mBackArrow = (ImageView) view.findViewById(R.id.backArrow);
+        mBackArrow = (ImageView) view.findViewById(R.id.BackArrow);
         mBackLabel = (TextView) view.findViewById(R.id.tvBackLabel);
         mCaption = (TextView) view.findViewById(R.id.image_caption);
         mUsername = (TextView) view.findViewById(R.id.username);
@@ -98,18 +99,19 @@ public class ViewPostFragment extends Fragment {
         mLikes = (TextView) view.findViewById(R.id.image_likes);
         mComment = (ImageView) view.findViewById(R.id.speech_bubble);
 
+
         mHeart = new Heart(mHeartWhite, mHeartRed);
         mGestureDetector = new GestureDetector(getActivity(), new GestureListener());
 
-        try {
+        try{
             mPhoto = getPhotoFromBundle();
             UniversalImageLoader.setImage(mPhoto.getImage_path(), mPostImage, null, "");
             mActivityNumber = getActivityNumFromBundle();
             getPhotoDetails();
             getLikesString();
 
-        } catch (NullPointerException e) {
-            Log.e(TAG, "onCreateView: NullPointerException: " + e.getMessage());
+        }catch (NullPointerException e){
+            Log.e(TAG, "onCreateView: NullPointerException: " + e.getMessage() );
         }
 
         setupFirebaseAuth();
@@ -122,14 +124,14 @@ public class ViewPostFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        try {
+        try{
             mOnCommentThreadSelectedListener = (OnCommentThreadSelectedListener) getActivity();
-        } catch (ClassCastException e) {
+        }catch (ClassCastException e){
             Log.e(TAG, "onAttach: ClassCastException: " + e.getMessage() );
         }
     }
 
-    private void getLikesString() {
+    private void getLikesString(){
         Log.d(TAG, "getLikesString: getting likes string");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -141,7 +143,7 @@ public class ViewPostFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mUsers = new StringBuilder();
-                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
 
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                     Query query = reference
@@ -151,7 +153,7 @@ public class ViewPostFragment extends Fragment {
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                            for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
                                 Log.d(TAG, "onDataChange: found like: " +
                                         singleSnapshot.getValue(User.class).getUsername());
 
@@ -161,29 +163,33 @@ public class ViewPostFragment extends Fragment {
 
                             String[] splitUsers = mUsers.toString().split(",");
 
-                            if (mUsers.toString().contains(mUserAccountSettings.getUsername() + "," )) {
+                            if(mUsers.toString().contains(mUserAccountSettings.getUsername() + ",")){//mitch, mitchell.tabian
                                 mLikedByCurrentUser = true;
-                            } else {
+                            }else{
                                 mLikedByCurrentUser = false;
                             }
 
                             int length = splitUsers.length;
-                            if (length == 1) {
+                            if(length == 1){
                                 mLikesString = "Liked by " + splitUsers[0];
-                            } else if (length == 2) {
+                            }
+                            else if(length == 2){
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + " and " + splitUsers[1];
-                            } else if (length == 3) {
+                            }
+                            else if(length == 3){
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + ", " + splitUsers[1]
                                         + " and " + splitUsers[2];
 
-                            } else if (length == 4) {
+                            }
+                            else if(length == 4){
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + ", " + splitUsers[1]
                                         + ", " + splitUsers[2]
                                         + " and " + splitUsers[3];
-                            } else if (length > 4) {
+                            }
+                            else if(length > 4){
                                 mLikesString = "Liked by " + splitUsers[0]
                                         + ", " + splitUsers[1]
                                         + ", " + splitUsers[2]
@@ -199,7 +205,7 @@ public class ViewPostFragment extends Fragment {
                         }
                     });
                 }
-                if (!dataSnapshot.exists()) {
+                if(!dataSnapshot.exists()){
                     mLikesString = "";
                     mLikedByCurrentUser = false;
                     setupWidgets();
@@ -214,7 +220,7 @@ public class ViewPostFragment extends Fragment {
 
     }
 
-    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
+    public class GestureListener extends GestureDetector.SimpleOnGestureListener{
         @Override
         public boolean onDown(MotionEvent e) {
             return true;
@@ -232,14 +238,14 @@ public class ViewPostFragment extends Fragment {
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                    for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
 
                         String keyID = singleSnapshot.getKey();
 
                         //case1: Then user already liked the photo
-                        if (mLikedByCurrentUser &&
+                        if(mLikedByCurrentUser &&
                                 singleSnapshot.getValue(Like.class).getUser_id()
-                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                                        .equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
 
                             myRef.child(getString(R.string.dbname_photos))
                                     .child(mPhoto.getPhoto_id())
@@ -258,13 +264,13 @@ public class ViewPostFragment extends Fragment {
                             getLikesString();
                         }
                         //case2: The user has not liked the photo
-                        else if (!mLikedByCurrentUser) {
+                        else if(!mLikedByCurrentUser){
                             //add new like
                             addNewLike();
                             break;
                         }
                     }
-                    if (!dataSnapshot.exists()) {
+                    if(!dataSnapshot.exists()){
                         //add new like
                         addNewLike();
                     }
@@ -280,7 +286,7 @@ public class ViewPostFragment extends Fragment {
         }
     }
 
-    private void addNewLike() {
+    private void addNewLike(){
         Log.d(TAG, "addNewLike: adding new like");
 
         String newLikeID = myRef.push().getKey();
@@ -304,7 +310,7 @@ public class ViewPostFragment extends Fragment {
         getLikesString();
     }
 
-    private void getPhotoDetails() {
+    private void getPhotoDetails(){
         Log.d(TAG, "getPhotoDetails: retrieving photo details.");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference
@@ -314,7 +320,7 @@ public class ViewPostFragment extends Fragment {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                for ( DataSnapshot singleSnapshot :  dataSnapshot.getChildren()){
                     mUserAccountSettings = singleSnapshot.getValue(UserAccountSettings.class);
                 }
                 //setupWidgets();
@@ -327,11 +333,11 @@ public class ViewPostFragment extends Fragment {
         });
     }
 
-    private void setupWidgets() {
+    private void setupWidgets(){
         String timestampDiff = getTimestampDifference();
-        if (!timestampDiff.equals("0")) {
+        if(!timestampDiff.equals("0")){
             mTimestamp.setText(timestampDiff + " DAYS AGO");
-        } else {
+        }else{
             mTimestamp.setText("TODAY");
         }
         UniversalImageLoader.setImage(mUserAccountSettings.getProfile_photo(), mProfileImage, null, "");
@@ -350,13 +356,12 @@ public class ViewPostFragment extends Fragment {
         mComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: navigate to comments thread");
-                getActivity().getSupportFragmentManager().popBackStack();
+                Log.d(TAG, "onClick: navigating back");
+                mOnCommentThreadSelectedListener.onCommentThreadSelectedListener(mPhoto);
             }
         });
 
-
-        if (mLikedByCurrentUser) {
+        if(mLikedByCurrentUser){
             mHeartWhite.setVisibility(View.GONE);
             mHeartRed.setVisibility(View.VISIBLE);
             mHeartRed.setOnTouchListener(new View.OnTouchListener() {
@@ -366,7 +371,8 @@ public class ViewPostFragment extends Fragment {
                     return mGestureDetector.onTouchEvent(event);
                 }
             });
-        } else {
+        }
+        else{
             mHeartWhite.setVisibility(View.VISIBLE);
             mHeartRed.setVisibility(View.GONE);
             mHeartWhite.setOnTouchListener(new View.OnTouchListener() {
@@ -384,10 +390,9 @@ public class ViewPostFragment extends Fragment {
 
     /**
      * Returns a string representing the number of days ago the post was made
-     *
      * @return
      */
-    private String getTimestampDifference() {
+    private String getTimestampDifference(){
         Log.d(TAG, "getTimestampDifference: getting timestamp difference.");
 
         String difference = "";
@@ -398,11 +403,11 @@ public class ViewPostFragment extends Fragment {
         sdf.format(today);
         Date timestamp;
         final String photoTimestamp = mPhoto.getDate_created();
-        try {
+        try{
             timestamp = sdf.parse(photoTimestamp);
-            difference = String.valueOf(Math.round(((today.getTime() - timestamp.getTime()) / 1000 / 60 / 60 / 24)));
-        } catch (ParseException e) {
-            Log.e(TAG, "getTimestampDifference: ParseException: " + e.getMessage());
+            difference = String.valueOf(Math.round(((today.getTime() - timestamp.getTime()) / 1000 / 60 / 60 / 24 )));
+        }catch (ParseException e){
+            Log.e(TAG, "getTimestampDifference: ParseException: " + e.getMessage() );
             difference = "0";
         }
         return difference;
@@ -410,32 +415,30 @@ public class ViewPostFragment extends Fragment {
 
     /**
      * retrieve the activity number from the incoming bundle from profileActivity interface
-     *
      * @return
      */
-    private int getActivityNumFromBundle() {
+    private int getActivityNumFromBundle(){
         Log.d(TAG, "getActivityNumFromBundle: arguments: " + getArguments());
 
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
+        if(bundle != null) {
             return bundle.getInt(getString(R.string.activity_number));
-        } else {
+        }else{
             return 0;
         }
     }
 
     /**
      * retrieve the photo from the incoming bundle from profileActivity interface
-     *
      * @return
      */
-    private Photo getPhotoFromBundle() {
+    private Photo getPhotoFromBundle(){
         Log.d(TAG, "getPhotoFromBundle: arguments: " + getArguments());
 
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
+        if(bundle != null) {
             return bundle.getParcelable(getString(R.string.photo));
-        } else {
+        }else{
             return null;
         }
     }
@@ -443,10 +446,10 @@ public class ViewPostFragment extends Fragment {
     /**
      * BottomNavigationView setup
      */
-    private void setupBottomNavigationView() {
+    private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationView);
-        BottomNavigationViewHelper.enableNavigation(getActivity(), getActivity(), bottomNavigationView);
+        BottomNavigationViewHelper.enableNavigation(getActivity(),getActivity() ,bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(mActivityNumber);
         menuItem.setChecked(true);
@@ -459,7 +462,7 @@ public class ViewPostFragment extends Fragment {
     /**
      * Setup the firebase auth object
      */
-    private void setupFirebaseAuth() {
+    private void setupFirebaseAuth(){
         Log.d(TAG, "setupFirebaseAuth: setting up firebase auth.");
 
         mAuth = FirebaseAuth.getInstance();

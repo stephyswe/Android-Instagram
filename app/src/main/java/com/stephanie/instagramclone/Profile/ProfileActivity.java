@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import com.stephanie.instagramclone.Models.Photo;
 
 import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
 import com.stephanie.instagramclone.Utils.ViewPostFragment;
 
 /**
@@ -25,6 +26,17 @@ public class ProfileActivity extends AppCompatActivity implements ProfileFragmen
 
     @Override
     public void onCommentThreadSelectedListener(Photo photo) {
+        Log.d(TAG, "onCommentThreadSelectedListener: selected comment thread");
+
+        ViewCommentsFragment fragment = new ViewCommentsFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(getString(R.string.photo), photo);
+        fragment.setArguments(args);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(getString(R.string.view_comments_fragment));
+        transaction.commit();
 
     }
 
