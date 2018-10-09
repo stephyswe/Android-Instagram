@@ -8,6 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rel_layout_1">
+
+        <include layout="@layout/snippet_comments_toolbar" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -16,6 +19,13 @@
         android:id="@+id/rel_layout_2"
         android:layout_below="@+id/rel_layout_1"
         android:layout_marginBottom="60dp">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listView">
+
+        </ListView>
 
     </RelativeLayout>
 

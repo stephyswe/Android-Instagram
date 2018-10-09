@@ -19,19 +19,31 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/BackArrow"
-                    android:src="@drawable/ic_backarrow"
+                    android:id="@+id/ivCloseShare"
+                    android:src="@drawable/ic_black_close"
                     />
+
+                <Spinner
+                    android:id="@+id/spinnerDirectory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/ivCloseShare"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:text="Gallery"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+                </Spinner>
 
                 <TextView
                     android:id="@+id/tvNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/BackArrow"
-                    android:text="Comments"
+                    android:text="@string/next"
+                    android:layout_alignParentRight="true"
                     android:layout_marginRight="15dp"
                     android:textSize="20sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/link_blue"
                     android:layout_centerVertical="true"/>
 
             </RelativeLayout>

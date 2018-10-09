@@ -34,8 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\icons\ic_heart_outline.png" />
-                                      <entry key="outputName" value="ic_heart_outline" />
+                                      <entry key="imageAsset" value="C:\icons\ic_black_x.png" />
+                                      <entry key="outputName" value="ic_black_close" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="000000" />
                                     </map>
