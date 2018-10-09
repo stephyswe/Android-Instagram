@@ -34,7 +34,7 @@
                         android:layout_height="80dp"
                         android:id="@+id/profile_photo"
                         app:civ_border_color="@color/black"
-                        app:civ_border_width="2dp"
+                        app:civ_border_width="0.5dp"
                         android:layout_centerVertical="true"/>
 
                 </RelativeLayout>

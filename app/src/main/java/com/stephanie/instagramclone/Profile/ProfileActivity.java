@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instagramclone.Models.Photo;
 import com.stephanie.instagramclone.Profile.ProfileFragment;
 
 import java.util.ArrayList;
@@ -24,13 +25,29 @@ import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.GridImageAdapter;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.ViewPostFragment;
 
 /**
  * Created by User on 5/28/2017.
  */
 
-public class ProfileActivity extends AppCompatActivity{
+public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener{
     private static final String TAG = "ProfileActivity";
+
+    @Override
+    public void onGridImageSelected(Photo photo, int activityNumber) {
+        Log.d(TAG, "onGridImageSelected: selected an image gridview: " + photo.toString());
+        ViewPostFragment fragment = new ViewPostFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(getString(R.string.photo), photo);
+        args.putInt(getString(R.string.activity_number), activityNumber);
+        fragment.setArguments(args);
+        FragmentTransaction transaction  = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(getString(R.string.view_post_fragment));
+        transaction.commit();
+    }
+
     private static final int ACTIVITY_NUM = 4;
     private static final int NUM_GRID_COLUMNS = 3;
 
