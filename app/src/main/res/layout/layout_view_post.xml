@@ -38,9 +38,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/username"
-                    android:textColor="@color/black"
-                    />
-
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:layout_width="30dp"

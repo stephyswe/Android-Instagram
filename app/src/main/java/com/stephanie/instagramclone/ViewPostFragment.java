@@ -18,19 +18,27 @@ import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.SquareImageView;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 public class ViewPostFragment extends Fragment {
 
     private static final String TAG = "ViewPostFragment";
+
     public ViewPostFragment(){
         super();
         setArguments(new Bundle());
     }
-
     //widgets
     private SquareImageView mPostImage;
     private BottomNavigationViewEx bottomNavigationView;
     private TextView mBackLabel, mCaption, mUsername, mTimestamp;
     private ImageView mBackArrow, mEllipses, mHeartRed, mHeartWhite, mProfileImage;
+
 
     //vars
     private Photo mPhoto;
@@ -40,7 +48,6 @@ public class ViewPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view_post, container, false);
-
         mPostImage = (SquareImageView) view.findViewById(R.id.post_image);
         bottomNavigationView = (BottomNavigationViewEx) view.findViewById(R.id.bottomNavViewBar);
         mBackArrow = (ImageView) view.findViewById(R.id.backArrow);
@@ -52,16 +59,55 @@ public class ViewPostFragment extends Fragment {
         mHeartRed = (ImageView) view.findViewById(R.id.image_heart_red);
         mHeartWhite = (ImageView) view.findViewById(R.id.image_heart);
         mProfileImage = (ImageView) view.findViewById(R.id.profile_photo);
+
         try{
             mPhoto = getPhotoFromBundle();
             UniversalImageLoader.setImage(mPhoto.getImage_path(), mPostImage, null, "");
             mActivityNumber = getActivityNumFromBundle();
+
         }catch (NullPointerException e){
             Log.e(TAG, "onCreateView: NullPointerException: " + e.getMessage() );
         }
+
         setupBottomNavigationView();
+        setupWidgets();
 
         return view;
+    }
+
+    private void setupWidgets() {
+        String timeStampDiff = getTimestampDifference();
+        if (!timeStampDiff.equals("0")) {
+            mTimestamp.setText(timeStampDiff + " DAYS AGO");
+        } else {
+            mTimestamp.setText("TODAY");
+        }
+    }
+
+    /**
+     * Returns a string representing the number of days ago the post was created
+     * @return
+     */
+    private String getTimestampDifference() {
+        Log.d(TAG, "getTimestampDifference: getting timstamp difference");
+
+        String difference = "";
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.GERMANY);
+        sdf.setTimeZone(TimeZone.getTimeZone("Sweden/Stockholm")); //google 'android list of timezones'
+        Date today = c.getTime();
+        sdf.format(today);
+
+        Date timestamp;
+        final String photoTimestamp = mPhoto.getDate_created();
+        try {
+            timestamp = sdf.parse(photoTimestamp);
+            difference = String.valueOf(Math.round(((today.getTime() - timestamp.getTime()) / 1000 / 60 / 60 / 24)));
+        } catch (ParseException e) {
+            Log.e(TAG, "getTimestampDifference: " + e.getMessage() );
+            difference = "0";
+        }
+        return difference;
     }
 
     /**
@@ -70,6 +116,7 @@ public class ViewPostFragment extends Fragment {
      */
     private int getActivityNumFromBundle(){
         Log.d(TAG, "getActivityNumFromBundle: arguments: " + getArguments());
+
         Bundle bundle = this.getArguments();
         if(bundle != null) {
             return bundle.getInt(getString(R.string.activity_number));
@@ -77,12 +124,14 @@ public class ViewPostFragment extends Fragment {
             return 0;
         }
     }
+
     /**
      * retrieve the photo from the incoming bundle from profileActivity interface
      * @return
      */
     private Photo getPhotoFromBundle(){
         Log.d(TAG, "getPhotoFromBundle: arguments: " + getArguments());
+
         Bundle bundle = this.getArguments();
         if(bundle != null) {
             return bundle.getParcelable(getString(R.string.photo));
@@ -90,6 +139,7 @@ public class ViewPostFragment extends Fragment {
             return null;
         }
     }
+
     /**
      * BottomNavigationView setup
      */
@@ -102,3 +152,4 @@ public class ViewPostFragment extends Fragment {
         menuItem.setChecked(true);
     }
 }
+
