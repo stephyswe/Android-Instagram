@@ -1,14 +1,16 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/white_grey_border_bottom">
+        android:background="@drawable/white_grey_border_bottom"
+        >
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/profileToolbar">
+            android:id="@+id/profileToolBar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -19,36 +21,32 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="20dp"
                     android:layout_centerVertical="true"
-                    android:id="@+id/ivCloseShare"
-                    android:src="@drawable/ic_black_close"
-                    />
+                    android:id="@+id/backArrow"
+                    android:src="@drawable/ic_backarrow"/>
 
-                <Spinner
-                    android:id="@+id/spinnerDirectory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/ivCloseShare"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:text="Gallery"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_vertical">
-                </Spinner>
 
                 <TextView
-                    android:id="@+id/tvNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/next"
-                    android:layout_alignParentRight="true"
+                    android:text="Comments"
+                    android:layout_toRightOf="@+id/backArrow"
                     android:layout_marginRight="15dp"
                     android:textSize="20sp"
-                    android:textColor="@color/link_blue"
-                    android:layout_centerVertical="true"/>
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/tvNext"
+                    />
+
+
+
 
             </RelativeLayout>
 
+
         </android.support.v7.widget.Toolbar>
 
+
+
     </android.support.design.widget.AppBarLayout>
+
 </merge>
