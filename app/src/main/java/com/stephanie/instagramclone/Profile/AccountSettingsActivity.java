@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,21 +17,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instagramclone.Models.UserAccountSettings;
-import com.stephanie.instagramclone.Models.UserSettings;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.SectionsStatePagerAdapter;
-import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 
 import java.util.ArrayList;
 
@@ -62,8 +51,8 @@ public class AccountSettingsActivity extends AppCompatActivity{
         getIncomingIntent();
 
 
-        /**
-         * setup back arrow to navigate to "ProfileActivity"
+        /*
+          setup back arrow to navigate to "ProfileActivity"
          */
         ImageView backArrow = (ImageView) findViewById(R.id.backArrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +104,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
     }
 
     /**
-     * responsible for navigation of fragments
+     * responsible for navigation of fragments fragmentNumber
      * @param fragmentNumber
      */
     public void setViewPager(int fragmentNumber){
@@ -133,7 +122,7 @@ public class AccountSettingsActivity extends AppCompatActivity{
         options.add(getString(R.string.edit_profile_fragment)); //fragment 0
         options.add(getString(R.string.sign_out_fragment)); //fragment 1
 
-        ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, options);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1, options);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

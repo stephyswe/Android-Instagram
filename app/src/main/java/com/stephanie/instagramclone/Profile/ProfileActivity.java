@@ -1,31 +1,18 @@
 package com.stephanie.instagramclone.Profile;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.Profile.ProfileFragment;
-
-import java.util.ArrayList;
 
 import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instagramclone.Utils.GridImageAdapter;
-import com.stephanie.instagramclone.Utils.UniversalImageLoader;
-import com.stephanie.instagramclone.ViewPostFragment;
+import com.stephanie.instagramclone.Utils.ViewPostFragment;
 
 /**
  * Created by User on 5/28/2017.
