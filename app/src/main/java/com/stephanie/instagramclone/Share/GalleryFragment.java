@@ -30,11 +30,12 @@ import com.stephanie.instagramclone.Utils.GridImageAdapter;
 import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment {
-
     private static final String TAG = "GalleryFragment";
 
-    // constants
+
+    //constants
     private static final int NUM_GRID_COLUMNS = 3;
+
 
     //widgets
     private GridView gridView;
@@ -54,27 +55,27 @@ public class GalleryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         galleryImage = (ImageView) view.findViewById(R.id.galleryImageView);
         gridView = (GridView) view.findViewById(R.id.gridView);
-        //directorySpinner = (Spinner) view.findViewById(R.id.spinnerDirectory);
+        directorySpinner = (Spinner) view.findViewById(R.id.spinnerDirectory);
         mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
         directories = new ArrayList<>();
-
         Log.d(TAG, "onCreateView: started.");
 
-        ImageView shareClose = (ImageView) view.findViewById(R.id.backArrow);
+        ImageView shareClose = (ImageView) view.findViewById(R.id.ivCloseShare);
         shareClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: closing the gallery fragment");
+                Log.d(TAG, "onClick: closing the gallery fragment.");
                 getActivity().finish();
             }
         });
+
 
         TextView nextScreen = (TextView) view.findViewById(R.id.tvNext);
         nextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating to the final share screen");
+                Log.d(TAG, "onClick: navigating to the final share screen.");
 
                 if(isRootTask()){
                     Intent intent = new Intent(getActivity(), NextActivity.class);
@@ -87,6 +88,7 @@ public class GalleryFragment extends Fragment {
                     startActivity(intent);
                     getActivity().finish();
                 }
+
             }
         });
 
@@ -98,41 +100,40 @@ public class GalleryFragment extends Fragment {
     private boolean isRootTask(){
         if(((ShareActivity)getActivity()).getTask() == 0){
             return true;
-        } else{
+        }
+        else{
             return false;
         }
     }
 
-    private void init() {
+    private void init(){
         FilePaths filePaths = new FilePaths();
 
-        // check for other folders inside "/storage/emulated/0/pictures"
+        //check for other folders indide "/storage/emulated/0/pictures"
         if (FileSearch.getDirectoryPaths(filePaths.PICTURES) != null) {
             directories = FileSearch.getDirectoryPaths(filePaths.PICTURES);
         }
+        directories.add(filePaths.CAMERA);
 
-        // Displays Spinner item as /Pictures and not Storage/emulated/0/...
         ArrayList<String> directoryNames = new ArrayList<>();
         for (int i = 0; i < directories.size(); i++) {
-
+            Log.d(TAG, "init: directory: " + directories.get(i));
             int index = directories.get(i).lastIndexOf("/");
-            String string = directories.get(i).substring(index).replace("/", "");
+            String string = directories.get(i).substring(index);
             directoryNames.add(string);
         }
 
-        directories.add(filePaths.CAMERA);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_dropdown_item, directoryNames);
+                android.R.layout.simple_spinner_item, directoryNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         directorySpinner.setAdapter(adapter);
 
         directorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemSelected: selected: " + directories.get(position));
+                Log.d(TAG, "onItemClick: selected: " + directories.get(position));
 
-                // setup our image for the directory chosen
+                //setup our image grid for the directory chosen
                 setupGridView(directories.get(position));
             }
 
@@ -143,16 +144,17 @@ public class GalleryFragment extends Fragment {
         });
     }
 
-    private void setupGridView(String selectedDirectory) {
+
+    private void setupGridView(String selectedDirectory){
         Log.d(TAG, "setupGridView: directory chosen: " + selectedDirectory);
         final ArrayList<String> imgURLs = FileSearch.getFilePaths(selectedDirectory);
 
-        // set grid column width
+        //set the grid column width
         int gridWidth = getResources().getDisplayMetrics().widthPixels;
-        int imageWidth = gridWidth / NUM_GRID_COLUMNS;
+        int imageWidth = gridWidth/NUM_GRID_COLUMNS;
         gridView.setColumnWidth(imageWidth);
 
-        // use the grid adapter to adapter the images to gridview (phone: file:/// )
+        //use the grid adapter to adapter the images to gridview
         GridImageAdapter adapter = new GridImageAdapter(getActivity(), R.layout.layout_grid_imageview, mAppend, imgURLs);
         gridView.setAdapter(adapter);
 
@@ -160,24 +162,24 @@ public class GalleryFragment extends Fragment {
         try{
             setImage(imgURLs.get(0), galleryImage, mAppend);
             mSelectedImage = imgURLs.get(0);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            Log.e(TAG, "setupGridView: ArrayIndexOutOfBoundsException: " + e.getMessage() );
+        }catch (ArrayIndexOutOfBoundsException e){
+            Log.e(TAG, "setupGridView: ArrayIndexOutOfBoundsException: " +e.getMessage() );
         }
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemClick: selected an image");
+                Log.d(TAG, "onItemClick: selected an image: " + imgURLs.get(position));
 
                 setImage(imgURLs.get(position), galleryImage, mAppend);
                 mSelectedImage = imgURLs.get(position);
-
             }
         });
 
     }
 
-    private void setImage(String imgURL, ImageView image, String append) {
+
+    private void setImage(String imgURL, ImageView image, String append){
         Log.d(TAG, "setImage: setting image");
 
         ImageLoader imageLoader = ImageLoader.getInstance();
@@ -191,21 +193,17 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
                 mProgressBar.setVisibility(View.INVISIBLE);
-
             }
 
             @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
                 mProgressBar.setVisibility(View.INVISIBLE);
-
             }
 
             @Override
             public void onLoadingCancelled(String imageUri, View view) {
                 mProgressBar.setVisibility(View.INVISIBLE);
-
             }
         });
-
     }
 }

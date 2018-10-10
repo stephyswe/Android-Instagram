@@ -21,6 +21,10 @@
     <string name="dbname_user_account_settings">user_account_settings</string>
     <string name="dbname_photos">photos</string>
     <string name="dbname_user_photos">user_photos</string>
+    <string name="dbname_following">following</string>
+    <string name="dbname_followers">followers</string>
+
+
     <string name="field_username">username</string>
     <string name="field_email">email</string>
     <string name="field_display_name">display_name</string>
@@ -60,6 +64,7 @@
     <string name="open_camera">Open Camera</string>
     <string name="next">Next</string>
     <string name="string_share">Share</string>
+    <string name="string_next">Next</string>
 
 
 

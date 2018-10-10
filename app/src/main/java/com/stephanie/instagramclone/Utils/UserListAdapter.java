@@ -87,6 +87,7 @@ public class UserListAdapter extends ArrayAdapter<User>{
 
                     ImageLoader imageLoader = ImageLoader.getInstance();
 
+
                     imageLoader.displayImage(singleSnapshot.getValue(UserAccountSettings.class).getProfile_photo(),
                             holder.profileImage);
                 }
