@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,10 +18,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.stephanie.instagramclone.Login.LoginActivity;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -45,8 +49,19 @@ public class HomeActivity extends AppCompatActivity {
         initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+    }
 
-
+    public void onCommentThreadSelected(Photo photo, UserAccountSettings settings){
+        Log.d(TAG, "onCommentThreadSelected: selected a coemment thread");
+        ViewCommentsFragment fragment  = new ViewCommentsFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(getString(R.string.bundle_photo), photo);
+        args.putParcelable(getString(R.string.bundle_user_account_settings), settings);
+        fragment.setArguments(args);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(getString(R.string.view_comments_fragment));
+        transaction.commit();
     }
 
 
@@ -71,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram_black);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
     }
 
