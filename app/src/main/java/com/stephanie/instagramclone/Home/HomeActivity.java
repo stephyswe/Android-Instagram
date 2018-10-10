@@ -25,11 +25,23 @@ import com.stephanie.instagramclone.Models.Photo;
 import com.stephanie.instagramclone.Models.UserAccountSettings;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.MainfeedListAdapter;
 import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements
+        MainfeedListAdapter.OnLoadMoreItemsListener{
+
+    @Override
+    public void onLoadMoreItems() {
+        Log.d(TAG, "onLoadMoreItems: displaying more photos");
+        HomeFragment fragment = (HomeFragment)getSupportFragmentManager()
+                .findFragmentByTag("android:switcher:" + R.id.viewpager_container + ":" + mViewPager.getCurrentItem());
+        if(fragment != null){
+            fragment.displayMorePhotos();
+        }
+    }
 
     private static final String TAG = "HomeActivity";
     private static final int ACTIVITY_NUM = 0;
@@ -122,7 +134,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram_black);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
     }
 
@@ -199,5 +211,6 @@ public class HomeActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
 
 }
