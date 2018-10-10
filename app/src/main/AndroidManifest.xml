@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".Likes.LikesActivity"></activity>
         <activity android:name=".Profile.ProfileActivity"></activity>
-        <activity android:name=".Search.SearchActivity"></activity>
+        <activity android:name=".Search.SearchActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".Share.ShareActivity"></activity>
         <activity android:name=".Profile.AccountSettingsActivity"></activity>
         <activity android:name=".Login.RegisterActivity"></activity>

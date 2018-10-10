@@ -22,8 +22,11 @@ import com.stephanie.instagramclone.Utils.ViewProfileFragment;
  * Created by User on 5/28/2017.
  */
 
-public class ProfileActivity extends AppCompatActivity implements ProfileFragment.OnGridImageSelectedListener,
-        ViewPostFragment.OnCommentThreadSelectedListener {
+public class ProfileActivity extends AppCompatActivity implements
+        ProfileFragment.OnGridImageSelectedListener,
+        ViewPostFragment.OnCommentThreadSelectedListener,
+        ViewProfileFragment.OnGridImageSelectedListener
+{
 
     private static final String TAG = "ProfileActivity";
 

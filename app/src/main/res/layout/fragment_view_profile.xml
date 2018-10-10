@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rel_layout_1">
 
-        <include layout="@layout/snippet_top_profilebar"/>
+        <include layout="@layout/snippet_top_view_profilebar"/>
 
     </RelativeLayout>
 
