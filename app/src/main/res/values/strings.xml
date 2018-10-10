@@ -6,6 +6,7 @@
     <string name="view_post_fragment">View Post</string>
     <string name="sign_out_fragment">Sign out</string>
     <string name="profile_fragment">Profile</string>
+    <string name="view_profile_fragment">View Profile</string>
     <string name="view_comments_fragment">View Comments</string>
 
     <!-- Dialog names -->
@@ -44,12 +45,14 @@
     <string name="selected_image">selected_image</string>
     <string name="return_to_fragment">return_to_fragment</string>
     <string name="selected_bitmap">selected_bitmap</string>
+    <string name="intent_user">intent_user</string>
 
     <!-- Bundle args names -->
     <string name="activity_number">activity_number</string>
 
     <!-- activity names -->
     <string name="profile_activity">Profile Activity</string>
+    <string name="search_activity">Search Activity</string>
 
     <!-- random -->
     <string name="gallery">GALLERY</string>

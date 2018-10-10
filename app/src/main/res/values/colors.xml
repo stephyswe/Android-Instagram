@@ -7,9 +7,11 @@
     <color name="grey">#BFBFBF</color>
     <color name="white">#FFF</color>
     <color name="black">#000000</color>
-    <color name="link_blue">#005CE6</color>
+    <color name="link_blue">#4d94ff</color>
 
-    <color name="darkRed">#ff4</color>
+    <color name="old_link_blue">#005CE6</color>
+
+    <color name="darkRed">#cc0000</color>
 
 
 </resources>
