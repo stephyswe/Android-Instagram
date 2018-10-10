@@ -20,7 +20,7 @@
         android:layout_below="@id/rel_layout_1"
         android:id="@+id/rel_layout_2">
 
-        <include layout="@layout/layout_center_profile"/>
+        <include layout="@layout/layout_center_view_profile"/>
 
     </RelativeLayout>
 
