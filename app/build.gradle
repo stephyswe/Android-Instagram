@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.seoullo.seoullotour"
+        applicationId "com.stephanie.instagramclone"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

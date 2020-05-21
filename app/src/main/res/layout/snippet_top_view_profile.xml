@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
@@ -143,9 +144,5 @@
             android:background="@drawable/grey_border"
             android:visibility="gone"/>
 
-
-    </android.support.constraint.ConstraintLayout>
-
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
