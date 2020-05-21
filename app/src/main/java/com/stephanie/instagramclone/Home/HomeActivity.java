@@ -21,15 +21,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.seoullo.seoullotour.Login.LoginActivity;
-import com.seoullo.seoullotour.Models.Photo;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
-import com.seoullo.seoullotour.Utils.MainfeedListAdapter;
-import com.seoullo.seoullotour.Utils.SectionsPagerAdapter;
-import com.seoullo.seoullotour.Utils.UniversalImageLoader;
-import com.seoullo.seoullotour.Utils.ViewCommentsFragment;
+import com.stephanie.instagramclone.Login.LoginActivity;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.MainfeedListAdapter;
+import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
+
 
 public class HomeActivity extends AppCompatActivity implements
         MainfeedListAdapter.OnLoadMoreItemsListener{
@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity implements
     @Override
     public void onLoadMoreItems() {
         Log.d(TAG, "onLoadMoreItems: displaying more photos");
-        com.seoullo.seoullotour.Home.HomeFragment fragment = (com.seoullo.seoullotour.Home.HomeFragment)getSupportFragmentManager()
+        com.stephanie.instagramclone.Home.HomeFragment fragment = (com.stephanie.instagramclone.Home.HomeFragment)getSupportFragmentManager()
                 .findFragmentByTag("android:switcher:" + R.id.viewpager_container + ":" + mViewPager.getCurrentItem());
         if(fragment != null){
             fragment.displayMorePhotos();

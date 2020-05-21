@@ -32,13 +32,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.seoullo.seoullotour.Home.HomeActivity;
-import com.seoullo.seoullotour.Models.Comment;
-import com.seoullo.seoullotour.Models.Like;
-import com.seoullo.seoullotour.Models.Photo;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.Models.Comment;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.R;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

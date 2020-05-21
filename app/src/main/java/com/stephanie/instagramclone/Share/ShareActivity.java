@@ -15,10 +15,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
-import com.seoullo.seoullotour.Utils.Permissions;
-import com.seoullo.seoullotour.Utils.SectionsPagerAdapter;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.Permissions;
+import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
 
 public class ShareActivity extends AppCompatActivity {
     private static final String TAG = "ShareActivity";

@@ -10,13 +10,13 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.Likes.LikesActivity;
+import com.stephanie.instagramclone.Profile.ProfileActivity;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Search.SearchActivity;
+import com.stephanie.instagramclone.Share.ShareActivity;
 
-import com.seoullo.seoullotour.Home.HomeActivity;
-import com.seoullo.seoullotour.Likes.LikesActivity;
-import com.seoullo.seoullotour.Profile.ProfileActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Search.SearchActivity;
-import com.seoullo.seoullotour.Share.ShareActivity;
 
 public class BottomNavigationViewHelper {
 

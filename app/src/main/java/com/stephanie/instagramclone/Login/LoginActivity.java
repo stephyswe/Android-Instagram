@@ -24,9 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.seoullo.seoullotour.Home.HomeActivity;
-import com.seoullo.seoullotour.Profile.ProfileActivity;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.R;
+
 
 /**
  * Created by User on 6/19/2017.
@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating to register screen");
-                Intent intent = new Intent(LoginActivity.this, com.seoullo.seoullotour.Login.RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, com.stephanie.instagramclone.Login.RegisterActivity.class);
                 startActivity(intent);
             }
         });

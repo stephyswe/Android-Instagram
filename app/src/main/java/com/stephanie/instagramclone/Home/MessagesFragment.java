@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.R;
+
 
 public class MessagesFragment extends Fragment {
     private static final String TAG = "MessagesFragment";

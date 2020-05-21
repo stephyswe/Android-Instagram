@@ -1,4 +1,5 @@
 package com.stephanie.instagramclone.Profile;
+
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -29,14 +30,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
-import com.seoullo.seoullotour.Models.UserSettings;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Share.ShareActivity;
-import com.seoullo.seoullotour.Utils.FirebaseMethods;
-import com.seoullo.seoullotour.Utils.UniversalImageLoader;
-import com.seoullo.seoullotour.dialogs.ConfirmPasswordDialog;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
+import com.stephanie.instagramclone.Models.UserSettings;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Share.ShareActivity;
+import com.stephanie.instagramclone.Utils.FirebaseMethods;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.dialogs.ConfirmPasswordDialog;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

@@ -18,10 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Models.Comment;
-import com.seoullo.seoullotour.Models.Photo;
-import com.seoullo.seoullotour.Utils.MainfeedListAdapter;
+import com.stephanie.instagramclone.Models.Comment;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.R;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Photo> mPaginatedPhotos;
     private ArrayList<String> mFollowing;
     private ListView mListView;
-    private com.seoullo.seoullotour.Utils.MainfeedListAdapter mAdapter;
+    private com.stephanie.instagramclone.Utils.MainfeedListAdapter mAdapter;
     private int mResults;
 
 

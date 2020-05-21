@@ -13,9 +13,10 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.Permissions;
+import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.Permissions;
+
 
 public class PhotoFragment extends Fragment {
     private static final String TAG = "PhotoFragment";
@@ -37,13 +38,13 @@ public class PhotoFragment extends Fragment {
             public void onClick(View v) {
                 Log.d(TAG, "onClick: launching camera");
 
-                if (((com.seoullo.seoullotour.Share.ShareActivity)getActivity()).getCurrentTabNumber() == PHOTO_FRAGMENT_NUM) {
-                    if (((com.seoullo.seoullotour.Share.ShareActivity)getActivity()).checkPermissions(Permissions.CAMERA_PERMISSION[0])) {
+                if (((com.stephanie.instagramclone.Share.ShareActivity)getActivity()).getCurrentTabNumber() == PHOTO_FRAGMENT_NUM) {
+                    if (((com.stephanie.instagramclone.Share.ShareActivity)getActivity()).checkPermissions(Permissions.CAMERA_PERMISSION[0])) {
                         Log.d(TAG, "onClick: starting camera");
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
                     } else {
-                        Intent intent = new Intent(getActivity(), com.seoullo.seoullotour.Share.ShareActivity.class);
+                        Intent intent = new Intent(getActivity(), com.stephanie.instagramclone.Share.ShareActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }
@@ -55,7 +56,7 @@ public class PhotoFragment extends Fragment {
     }
 
     private boolean isRootTask(){
-        if(((com.seoullo.seoullotour.Share.ShareActivity)getActivity()).getTask() == 0){
+        if(((com.stephanie.instagramclone.Share.ShareActivity)getActivity()).getTask() == 0){
             return true;
         } else{
             return false;

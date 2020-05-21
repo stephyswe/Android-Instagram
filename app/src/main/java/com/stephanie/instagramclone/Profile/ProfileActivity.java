@@ -14,20 +14,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.seoullo.seoullotour.Models.Photo;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
+import com.stephanie.instagramclone.Utils.ViewPostFragment;
+import com.stephanie.instagramclone.Utils.ViewProfileFragment;
 
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.R;
-
-import com.seoullo.seoullotour.Utils.ViewCommentsFragment;
-import com.seoullo.seoullotour.Utils.ViewPostFragment;
-import com.seoullo.seoullotour.Utils.ViewProfileFragment;
 
 /**
  * Created by User on 5/28/2017.
  */
 public class ProfileActivity extends AppCompatActivity implements
-        com.seoullo.seoullotour.Profile.ProfileFragment.OnGridImageSelectedListener ,
+        com.stephanie.instagramclone.Profile.ProfileFragment.OnGridImageSelectedListener ,
         ViewPostFragment.OnCommentThreadSelectedListener,
         ViewProfileFragment.OnGridImageSelectedListener{
 
@@ -109,7 +108,7 @@ public class ProfileActivity extends AppCompatActivity implements
                     transaction.commit();
                 }else{
                     Log.d(TAG, "init: inflating Profile");
-                    com.seoullo.seoullotour.Profile.ProfileFragment fragment = new com.seoullo.seoullotour.Profile.ProfileFragment();
+                    com.stephanie.instagramclone.Profile.ProfileFragment fragment = new com.stephanie.instagramclone.Profile.ProfileFragment();
                     FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.container, fragment);
                     transaction.addToBackStack(getString(R.string.profile_fragment));
@@ -121,7 +120,7 @@ public class ProfileActivity extends AppCompatActivity implements
 
         }else{
             Log.d(TAG, "init: inflating Profile");
-            com.seoullo.seoullotour.Profile.ProfileFragment fragment = new com.seoullo.seoullotour.Profile.ProfileFragment();
+            com.stephanie.instagramclone.Profile.ProfileFragment fragment = new com.stephanie.instagramclone.Profile.ProfileFragment();
             FragmentTransaction transaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.container, fragment);
             transaction.addToBackStack(getString(R.string.profile_fragment));

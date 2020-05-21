@@ -14,7 +14,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.R;
 
 public class UniversalImageLoader {
 

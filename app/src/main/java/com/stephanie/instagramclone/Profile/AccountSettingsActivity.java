@@ -19,10 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
-import com.seoullo.seoullotour.Utils.FirebaseMethods;
-import com.seoullo.seoullotour.Utils.SectionsStatePagerAdapter;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.FirebaseMethods;
+import com.stephanie.instagramclone.Utils.SectionsStatePagerAdapter;
+
 
 import java.util.ArrayList;
 
@@ -99,8 +100,8 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
     private void setupFragments() {
         pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new com.seoullo.seoullotour.Profile.EditProfileFragment(), getString(R.string.edit_profile_fragment));
-        pagerAdapter.addFragment(new com.seoullo.seoullotour.Profile.SignOutFragment(), getString(R.string.sign_out_fragment));
+        pagerAdapter.addFragment(new com.stephanie.instagramclone.Profile.EditProfileFragment(), getString(R.string.edit_profile_fragment));
+        pagerAdapter.addFragment(new com.stephanie.instagramclone.Profile.SignOutFragment(), getString(R.string.sign_out_fragment));
 
     }
 

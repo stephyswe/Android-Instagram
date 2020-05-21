@@ -13,7 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.seoullo.seoullotour.R;
+
+import com.stephanie.instagramclone.R;
 
 import org.w3c.dom.Text;
 

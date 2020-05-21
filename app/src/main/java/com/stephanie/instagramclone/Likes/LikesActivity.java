@@ -11,8 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+
 
 public class LikesActivity extends AppCompatActivity {
     private static final String TAG = "LikesActivity";

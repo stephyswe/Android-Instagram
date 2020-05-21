@@ -16,8 +16,9 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.seoullo.seoullotour.Login.LoginActivity;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.Login.LoginActivity;
+import com.stephanie.instagramclone.R;
+
 
 public class SignOutFragment extends Fragment {
 

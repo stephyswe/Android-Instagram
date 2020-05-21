@@ -23,16 +23,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.seoullo.seoullotour.Home.HomeActivity;
-import com.seoullo.seoullotour.Models.Photo;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
-import com.seoullo.seoullotour.Models.UserSettings;
-import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.FilePaths;
-import com.seoullo.seoullotour.Utils.ImageManager;
-import com.seoullo.seoullotour.Utils.StringManipulation;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
+import com.stephanie.instagramclone.Models.UserSettings;
+import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
+import com.stephanie.instagramclone.R;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

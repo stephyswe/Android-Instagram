@@ -21,11 +21,12 @@ import androidx.fragment.app.Fragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.FilePaths;
-import com.seoullo.seoullotour.Utils.FileSearch;
-import com.seoullo.seoullotour.Utils.GridImageAdapter;
+import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.FilePaths;
+import com.stephanie.instagramclone.Utils.FileSearch;
+import com.stephanie.instagramclone.Utils.GridImageAdapter;
+
 
 import java.util.ArrayList;
 
@@ -78,7 +79,7 @@ public class GalleryFragment extends Fragment {
                 Log.d(TAG, "onClick: navigating to the final share screen.");
 
                 if(isRootTask()){
-                    Intent intent = new Intent(getActivity(), com.seoullo.seoullotour.Share.NextActivity.class);
+                    Intent intent = new Intent(getActivity(), com.stephanie.instagramclone.Share.NextActivity.class);
                     intent.putExtra(getString(R.string.selected_image), mSelectedImage);
                     startActivity(intent);
                 }else{
@@ -98,7 +99,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private boolean isRootTask(){
-        if(((com.seoullo.seoullotour.Share.ShareActivity)getActivity()).getTask() == 0){
+        if(((com.stephanie.instagramclone.Share.ShareActivity)getActivity()).getTask() == 0){
             return true;
         }
         else{

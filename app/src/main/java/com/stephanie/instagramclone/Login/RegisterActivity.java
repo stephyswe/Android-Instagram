@@ -29,10 +29,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Profile.ProfileActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.FirebaseMethods;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.FirebaseMethods;
+
 
 /**
  * Created by User on 6/19/2017.

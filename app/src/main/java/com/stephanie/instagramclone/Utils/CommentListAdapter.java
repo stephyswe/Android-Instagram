@@ -19,10 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.seoullo.seoullotour.Models.Comment;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.Models.Comment;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
+import com.stephanie.instagramclone.R;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

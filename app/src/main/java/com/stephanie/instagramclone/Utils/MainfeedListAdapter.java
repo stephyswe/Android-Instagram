@@ -20,20 +20,21 @@ import androidx.annotation.Nullable;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.seoullo.seoullotour.Home.HomeActivity;
-import com.seoullo.seoullotour.Models.Comment;
-import com.seoullo.seoullotour.Models.Like;
-import com.seoullo.seoullotour.Profile.ProfileActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Models.Photo;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.stephanie.instagramclone.Home.HomeActivity;
+import com.stephanie.instagramclone.Models.Comment;
+import com.stephanie.instagramclone.Models.Like;
+import com.stephanie.instagramclone.Models.Photo;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.Models.UserAccountSettings;
+import com.stephanie.instagramclone.Profile.ProfileActivity;
+import com.stephanie.instagramclone.R;
+
 
 import org.w3c.dom.Text;
 
@@ -75,7 +76,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
         CircleImageView mprofileImage;
         String likesString;
         TextView username, timeDetla, caption, likes, comments;
-        com.seoullo.seoullotour.Utils.SquareImageView image;
+        com.stephanie.instagramclone.Utils.SquareImageView image;
         ImageView heartRed, heartWhite, comment;
 
         UserAccountSettings settings = new UserAccountSettings();
@@ -99,7 +100,7 @@ public class MainfeedListAdapter extends ArrayAdapter<Photo> {
             holder = new ViewHolder();
 
             holder.username = (TextView) convertView.findViewById(R.id.username);
-            holder.image = (com.seoullo.seoullotour.Utils.SquareImageView) convertView.findViewById(R.id.post_image);
+            holder.image = (com.stephanie.instagramclone.Utils.SquareImageView) convertView.findViewById(R.id.post_image);
             holder.heartRed = (ImageView) convertView.findViewById(R.id.image_heart_red);
             holder.heartWhite = (ImageView) convertView.findViewById(R.id.image_heart);
             holder.comment = (ImageView) convertView.findViewById(R.id.speech_bubble);

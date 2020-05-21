@@ -15,7 +15,8 @@ import androidx.annotation.Nullable;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.seoullo.seoullotour.R;
+import com.stephanie.instagramclone.R;
+
 
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
      * Progressbar is shown when images is loading
      */
     private static class ViewHolder {
-        com.seoullo.seoullotour.Utils.SquareImageView image;
+        com.stephanie.instagramclone.Utils.SquareImageView image;
         ProgressBar mProgressBar;
     }
 
@@ -62,7 +63,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
             convertView = mInflater.inflate(layoutResource, parent, false);
             holder = new ViewHolder();
             holder.mProgressBar = (ProgressBar) convertView.findViewById(R.id.gridImageProgressbar);
-            holder.image = (com.seoullo.seoullotour.Utils.SquareImageView) convertView.findViewById(R.id.gridImageView);
+            holder.image = (com.stephanie.instagramclone.Utils.SquareImageView) convertView.findViewById(R.id.gridImageView);
 
             convertView.setTag(holder);
         }

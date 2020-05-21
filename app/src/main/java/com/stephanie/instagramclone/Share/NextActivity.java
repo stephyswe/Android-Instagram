@@ -21,9 +21,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.FirebaseMethods;
-import com.seoullo.seoullotour.Utils.UniversalImageLoader;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.FirebaseMethods;
+import com.stephanie.instagramclone.Utils.UniversalImageLoader;
+
 
 public class NextActivity extends AppCompatActivity {
 

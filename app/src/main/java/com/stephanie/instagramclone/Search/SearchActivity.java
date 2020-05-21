@@ -24,11 +24,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.seoullo.seoullotour.Models.User;
-import com.seoullo.seoullotour.Profile.ProfileActivity;
-import com.seoullo.seoullotour.R;
-import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
-import com.seoullo.seoullotour.Utils.UserListAdapter;
+import com.stephanie.instagramclone.Models.User;
+import com.stephanie.instagramclone.Profile.ProfileActivity;
+import com.stephanie.instagramclone.R;
+import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+import com.stephanie.instagramclone.Utils.UserListAdapter;
+
 
 import java.util.ArrayList;
 import java.util.List;
