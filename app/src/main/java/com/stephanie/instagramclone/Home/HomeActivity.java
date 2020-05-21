@@ -3,11 +3,6 @@ package com.stephanie.instagramclone.Home;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,19 +11,25 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.stephanie.instagramclone.Login.LoginActivity;
-import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.Models.UserAccountSettings;
-import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instagramclone.Utils.MainfeedListAdapter;
-import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
-import com.stephanie.instagramclone.Utils.UniversalImageLoader;
-import com.stephanie.instagramclone.Utils.ViewCommentsFragment;
+import com.seoullo.seoullotour.Login.LoginActivity;
+import com.seoullo.seoullotour.Models.Photo;
+import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
+import com.seoullo.seoullotour.Utils.MainfeedListAdapter;
+import com.seoullo.seoullotour.Utils.SectionsPagerAdapter;
+import com.seoullo.seoullotour.Utils.UniversalImageLoader;
+import com.seoullo.seoullotour.Utils.ViewCommentsFragment;
 
 public class HomeActivity extends AppCompatActivity implements
         MainfeedListAdapter.OnLoadMoreItemsListener{
@@ -36,7 +37,7 @@ public class HomeActivity extends AppCompatActivity implements
     @Override
     public void onLoadMoreItems() {
         Log.d(TAG, "onLoadMoreItems: displaying more photos");
-        HomeFragment fragment = (HomeFragment)getSupportFragmentManager()
+        com.seoullo.seoullotour.Home.HomeFragment fragment = (com.seoullo.seoullotour.Home.HomeFragment)getSupportFragmentManager()
                 .findFragmentByTag("android:switcher:" + R.id.viewpager_container + ":" + mViewPager.getCurrentItem());
         if(fragment != null){
             fragment.displayMorePhotos();

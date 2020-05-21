@@ -1,14 +1,15 @@
 package com.stephanie.instagramclone.Home;
 
+
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -17,10 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.stephanie.instagramclone.Models.Comment;
-import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.MainfeedListAdapter;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Models.Comment;
+import com.seoullo.seoullotour.Models.Photo;
+import com.seoullo.seoullotour.Utils.MainfeedListAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,7 +38,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Photo> mPaginatedPhotos;
     private ArrayList<String> mFollowing;
     private ListView mListView;
-    private MainfeedListAdapter mAdapter;
+    private com.seoullo.seoullotour.Utils.MainfeedListAdapter mAdapter;
     private int mResults;
 
 
@@ -156,7 +157,7 @@ public class HomeFragment extends Fragment {
                     mPaginatedPhotos.add(mPhotos.get(i));
                 }
 
-                mAdapter = new MainfeedListAdapter(getActivity(), R.layout.layout_mainfeed_listitem, mPaginatedPhotos);
+                mAdapter = new com.stephanie.instagramclone.Utils.MainfeedListAdapter(getActivity(), R.layout.layout_mainfeed_listitem, mPaginatedPhotos);
                 mListView.setAdapter(mAdapter);
 
             }catch (NullPointerException e){
@@ -198,16 +199,3 @@ public class HomeFragment extends Fragment {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

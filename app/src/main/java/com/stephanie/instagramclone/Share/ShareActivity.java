@@ -4,20 +4,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
-import com.stephanie.instagramclone.Utils.Permissions;
-import com.stephanie.instagramclone.Utils.SectionsPagerAdapter;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
+import com.seoullo.seoullotour.Utils.Permissions;
+import com.seoullo.seoullotour.Utils.SectionsPagerAdapter;
 
 public class ShareActivity extends AppCompatActivity {
     private static final String TAG = "ShareActivity";
@@ -116,7 +117,7 @@ public class ShareActivity extends AppCompatActivity {
         Log.d(TAG, "checkPermissions: checking permissions: " + permission);
 
         int permissionRequest = ActivityCompat.checkSelfPermission(ShareActivity.this, permission);
-        
+
         if (permissionRequest != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "checkPermissions: \n Permission was not granted for: " + permission);
             return false;

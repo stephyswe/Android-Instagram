@@ -3,10 +3,6 @@ package com.stephanie.instagramclone.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,6 +16,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,15 +30,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instagramclone.Models.Comment;
-import com.stephanie.instagramclone.Models.Like;
-import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.Models.User;
-import com.stephanie.instagramclone.Models.UserAccountSettings;
-import com.stephanie.instagramclone.Models.UserSettings;
-import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
-import com.stephanie.instagramclone.Profile.ProfileActivity;
-import com.stephanie.instagramclone.R;
+import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Utils.BottomNavigationViewHelper;
+import com.seoullo.seoullotour.Utils.GridImageAdapter;
+import com.seoullo.seoullotour.Utils.UniversalImageLoader;
+import com.seoullo.seoullotour.Models.Comment;
+import com.seoullo.seoullotour.Models.Like;
+import com.seoullo.seoullotour.Models.Photo;
+import com.seoullo.seoullotour.Models.User;
+import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.seoullo.seoullotour.Models.UserSettings;
+import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
+import com.seoullo.seoullotour.Profile.ProfileActivity;
+import com.seoullo.seoullotour.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,7 +73,7 @@ public class ViewProfileFragment extends Fragment {
 
     //widgets
     private TextView mPosts, mFollowers, mFollowing, mDisplayName, mUsername, mWebsite, mDescription,
-    mFollow, mUnfollow;
+            mFollow, mUnfollow;
     private ProgressBar mProgressBar;
     private CircleImageView mProfilePhoto;
     private GridView gridView;

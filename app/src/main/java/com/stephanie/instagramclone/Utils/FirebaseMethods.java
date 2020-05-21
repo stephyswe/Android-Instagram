@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,16 +23,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.stephanie.instagramclone.Home.HomeActivity;
-import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.Models.User;
-import com.stephanie.instagramclone.Models.UserAccountSettings;
-import com.stephanie.instagramclone.Models.UserSettings;
-import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
-import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.FilePaths;
-import com.stephanie.instagramclone.Utils.ImageManager;
-import com.stephanie.instagramclone.Utils.StringManipulation;
+import com.seoullo.seoullotour.Home.HomeActivity;
+import com.seoullo.seoullotour.Models.Photo;
+import com.seoullo.seoullotour.Models.User;
+import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.seoullo.seoullotour.Models.UserSettings;
+import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Utils.FilePaths;
+import com.seoullo.seoullotour.Utils.ImageManager;
+import com.seoullo.seoullotour.Utils.StringManipulation;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -91,7 +92,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri firebaseUrl = taskSnapshot.getDownloadUrl();
+                    Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
 
                     Toast.makeText(mContext, "photo upload success", Toast.LENGTH_SHORT).show();
 
@@ -143,7 +144,7 @@ public class FirebaseMethods {
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Uri firebaseUrl = taskSnapshot.getDownloadUrl();
+                    Task<Uri> firebaseUrl = taskSnapshot.getStorage().getDownloadUrl();
 
                     Toast.makeText(mContext, "photo upload success", Toast.LENGTH_SHORT).show();
 
@@ -153,7 +154,7 @@ public class FirebaseMethods {
                     ((AccountSettingsActivity)mContext).setViewPager
                             (((AccountSettingsActivity)mContext).pagerAdapter
                                     .getFragmentNumber(mContext.getString(R.string.edit_profile_fragment))
-                    );
+                            );
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -323,7 +324,7 @@ public class FirebaseMethods {
      * @param password
      * @param username
      */
-    public void registerNewEmail(final String email, String password, final String username){
+    public void registerNewEmail(final String email, final String password, final String username){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

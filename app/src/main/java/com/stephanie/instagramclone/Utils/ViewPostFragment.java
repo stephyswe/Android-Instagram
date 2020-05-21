@@ -3,9 +3,6 @@ package com.stephanie.instagramclone.Utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -17,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,12 +27,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.stephanie.instagramclone.Models.Comment;
-import com.stephanie.instagramclone.Models.Like;
-import com.stephanie.instagramclone.Models.Photo;
-import com.stephanie.instagramclone.Models.User;
-import com.stephanie.instagramclone.Models.UserAccountSettings;
-import com.stephanie.instagramclone.R;
+import com.seoullo.seoullotour.Models.Comment;
+import com.seoullo.seoullotour.Models.Like;
+import com.seoullo.seoullotour.Models.User;
+import com.seoullo.seoullotour.Models.UserAccountSettings;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Models.Photo;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -605,7 +607,3 @@ public class ViewPostFragment extends Fragment {
         }
     }
 }
-
-
-
-

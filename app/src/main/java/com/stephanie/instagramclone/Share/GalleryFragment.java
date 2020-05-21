@@ -2,10 +2,7 @@ package com.stephanie.instagramclone.Share;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Environment;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,14 +15,17 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.stephanie.instagramclone.Profile.AccountSettingsActivity;
-import com.stephanie.instagramclone.R;
-import com.stephanie.instagramclone.Utils.FilePaths;
-import com.stephanie.instagramclone.Utils.FileSearch;
-import com.stephanie.instagramclone.Utils.GridImageAdapter;
+import com.seoullo.seoullotour.Profile.AccountSettingsActivity;
+import com.seoullo.seoullotour.R;
+import com.seoullo.seoullotour.Utils.FilePaths;
+import com.seoullo.seoullotour.Utils.FileSearch;
+import com.seoullo.seoullotour.Utils.GridImageAdapter;
 
 import java.util.ArrayList;
 
@@ -78,7 +78,7 @@ public class GalleryFragment extends Fragment {
                 Log.d(TAG, "onClick: navigating to the final share screen.");
 
                 if(isRootTask()){
-                    Intent intent = new Intent(getActivity(), NextActivity.class);
+                    Intent intent = new Intent(getActivity(), com.seoullo.seoullotour.Share.NextActivity.class);
                     intent.putExtra(getString(R.string.selected_image), mSelectedImage);
                     startActivity(intent);
                 }else{
@@ -98,7 +98,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private boolean isRootTask(){
-        if(((ShareActivity)getActivity()).getTask() == 0){
+        if(((com.seoullo.seoullotour.Share.ShareActivity)getActivity()).getTask() == 0){
             return true;
         }
         else{
