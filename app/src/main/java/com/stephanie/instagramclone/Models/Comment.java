@@ -1,18 +1,17 @@
 package com.stephanie.instagramclone.Models;
-
 import java.util.List;
 
 public class Comment {
 
     private String comment;
     private String user_id;
-    private List<Like> likes;
+    private List<com.stephanie.instagramclone.Models.Like> likes;
     private String date_created;
 
     public Comment() {
     }
 
-    public Comment(String comment, String user_id, List<Like> likes, String date_created) {
+    public Comment(String comment, String user_id, List<com.stephanie.instagramclone.Models.Like> likes, String date_created) {
         this.comment = comment;
         this.user_id = user_id;
         this.likes = likes;
@@ -35,11 +34,11 @@ public class Comment {
         this.user_id = user_id;
     }
 
-    public List<Like> getLikes() {
+    public List<com.stephanie.instagramclone.Models.Like> getLikes() {
         return likes;
     }
 
-    public void setLikes(List<Like> likes) {
+    public void setLikes(List<com.stephanie.instagramclone.Models.Like> likes) {
         this.likes = likes;
     }
 

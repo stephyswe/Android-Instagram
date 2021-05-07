@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,15 +14,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
 import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.SectionsStatePagerAdapter;
 
+
 import java.util.ArrayList;
 
-public class AccountSettingsActivity extends AppCompatActivity{
+public class AccountSettingsActivity extends AppCompatActivity {
 
     private static final String TAG = "AccountSettingsActivity";
     public static final int ACTIVITY_NUM = 4;
@@ -98,8 +100,8 @@ public class AccountSettingsActivity extends AppCompatActivity{
 
     private void setupFragments() {
         pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_profile_fragment));
-        pagerAdapter.addFragment(new SignOutFragment(), getString(R.string.sign_out_fragment));
+        pagerAdapter.addFragment(new com.stephanie.instagramclone.Profile.EditProfileFragment(), getString(R.string.edit_profile_fragment));
+        pagerAdapter.addFragment(new com.stephanie.instagramclone.Profile.SignOutFragment(), getString(R.string.sign_out_fragment));
 
     }
 

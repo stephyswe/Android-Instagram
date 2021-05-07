@@ -2,8 +2,6 @@ package com.stephanie.instagramclone.Utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.stephanie.instagramclone.R;
+
 
 import java.util.ArrayList;
 
@@ -41,7 +43,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
      * Progressbar is shown when images is loading
      */
     private static class ViewHolder {
-        SquareImageView image;
+        com.stephanie.instagramclone.Utils.SquareImageView image;
         ProgressBar mProgressBar;
     }
 
@@ -61,7 +63,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
             convertView = mInflater.inflate(layoutResource, parent, false);
             holder = new ViewHolder();
             holder.mProgressBar = (ProgressBar) convertView.findViewById(R.id.gridImageProgressbar);
-            holder.image = (SquareImageView) convertView.findViewById(R.id.gridImageView);
+            holder.image = (com.stephanie.instagramclone.Utils.SquareImageView) convertView.findViewById(R.id.gridImageView);
 
             convertView.setTag(holder);
         }

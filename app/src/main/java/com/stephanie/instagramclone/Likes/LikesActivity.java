@@ -2,15 +2,18 @@ package com.stephanie.instagramclone.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Utils.BottomNavigationViewHelper;
+
 
 public class LikesActivity extends AppCompatActivity {
     private static final String TAG = "LikesActivity";

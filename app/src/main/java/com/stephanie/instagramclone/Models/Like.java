@@ -1,5 +1,6 @@
 package com.stephanie.instagramclone.Models;
 
+
 public class Like {
 
     private String user_id;
@@ -24,3 +25,4 @@ public class Like {
         return super.toString();
     }
 }
+

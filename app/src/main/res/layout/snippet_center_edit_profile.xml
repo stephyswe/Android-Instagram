@@ -203,15 +203,6 @@
                     android:hint="Phone Number"/>
 
             </RelativeLayout>
-
-
-
-
-
         </RelativeLayout>
-
-
-
     </ScrollView>
-
 </merge>

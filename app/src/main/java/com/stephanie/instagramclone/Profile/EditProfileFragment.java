@@ -3,9 +3,6 @@ package com.stephanie.instagramclone.Profile;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +12,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.ProviderQueryResult;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +38,7 @@ import com.stephanie.instagramclone.Share.ShareActivity;
 import com.stephanie.instagramclone.Utils.FirebaseMethods;
 import com.stephanie.instagramclone.Utils.UniversalImageLoader;
 import com.stephanie.instagramclone.dialogs.ConfirmPasswordDialog;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -63,12 +65,14 @@ public class EditProfileFragment extends Fragment implements
                             Log.d(TAG, "User re-authenticated.");
 
                             // Check if email is a new field in database
-                            mAuth.fetchProvidersForEmail(mEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
+                            //ProviderQueryResult -> SignInMethodQueryResult, fetchprovidersforemail -> fetchSignInMethodsForEmail
+                            mAuth.fetchSignInMethodsForEmail(mEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                                 @Override
-                                public void onComplete(@NonNull Task<ProviderQueryResult> task) {
+                                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
                                     if (task.isSuccessful()) {
                                         try {
-                                            if (task.getResult().getProviders().size() == 1) {
+                                            //task.getResult().getProviders().size() == 1 -> task.getResult().getSignInMethods().size() == 1
+                                            if (task.getResult().getSignInMethods().size() == 1) {
                                                 Log.d(TAG, "onComplete: that email is already in use");
                                                 Toast.makeText(getActivity(), "That email is already in use", Toast.LENGTH_SHORT).show();
                                             } else {

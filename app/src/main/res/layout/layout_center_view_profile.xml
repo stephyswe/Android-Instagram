@@ -15,7 +15,7 @@
             android:layout_below="@id/rel_layout_1"
             android:id="@+id/rel_layout_2"
             android:background="@color/white">
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

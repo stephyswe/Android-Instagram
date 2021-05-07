@@ -3,19 +3,20 @@ package com.stephanie.instagramclone.Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import androidx.annotation.NonNull;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.stephanie.instagramclone.Home.HomeActivity;
 import com.stephanie.instagramclone.Likes.LikesActivity;
 import com.stephanie.instagramclone.Profile.ProfileActivity;
 import com.stephanie.instagramclone.R;
 import com.stephanie.instagramclone.Search.SearchActivity;
 import com.stephanie.instagramclone.Share.ShareActivity;
+
 
 public class BottomNavigationViewHelper {
 

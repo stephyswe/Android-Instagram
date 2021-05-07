@@ -3,12 +3,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewpager_container">
+        </androidx.viewpager.widget.ViewPager>
 
-       <android.support.v4.view.ViewPager
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:id="@+id/viewpager_container">
-       </android.support.v4.view.ViewPager>
 
     </RelativeLayout>
 

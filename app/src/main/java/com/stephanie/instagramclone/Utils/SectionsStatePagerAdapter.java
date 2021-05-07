@@ -1,14 +1,14 @@
 package com.stephanie.instagramclone.Utils;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class SectionsStatePagerAdapter extends FragmentStatePagerAdapter{
+public class SectionsStatePagerAdapter extends FragmentStatePagerAdapter {
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final HashMap<Fragment, Integer> mFragments = new HashMap<>();
